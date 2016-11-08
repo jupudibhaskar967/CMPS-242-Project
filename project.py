@@ -9,9 +9,9 @@ import math
 
 N=10
 
-with open('yelp_academic_dataset_review.json', 'r') as file_req:
+with open('data.json', 'r') as file_req:
 	data_extraction = file_req.readlines()[0:N]
-	
+		
 data_extraction = map(lambda p: p.rstrip(), data_extraction)
 data_json_str = "[" + ','.join(data_extraction) + "]"
 df = pd.read_json(data_json_str)
