@@ -1,5 +1,4 @@
 import pandas as pd
-from sklearn.naive_bayes import MultinomialNB
 import numpy as np
 from sklearn.feature_extraction.text import TfidfTransformer
 from sklearn.feature_extraction.text import CountVectorizer
@@ -91,15 +90,3 @@ out = classify(res, test_X)
 print out
 
 print test_y
-
-
-
-
-
-
-
-
-
-
-	
-	
