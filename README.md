@@ -2,8 +2,7 @@
 Sentiment Analysis of yelp reviews using Logistic regression
 
 
-#python project.py
-
+$python project.py
 Output:
 
 Optimization terminated successfully.
