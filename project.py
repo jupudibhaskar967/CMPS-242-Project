@@ -29,19 +29,24 @@ for i in range(0,N):
 		pass
 
 y = [q for q in y if q!=[]]
-
 count_vector = CountVectorizer()
 X = count_vector.fit_transform(x).toarray()
-
-
 y = np.array(y)
 y = np.reshape(y,(-1,2))
-datapoints = X.shape[0]
-w = np.zeros((X.shape[1],2))
+
+train_X = X[0:6,:]
+train_y = y[0:6,:]
+
+test_X = X[6:N,:]
+test_y = y[6:N,:]
+
+datapoints = train_X.shape[0]
+w = np.zeros((train_X.shape[1],2))
+
 
 probes = 0;
 def softmax(w, x):
-	w = w.reshape((X.shape[1],2))
+	w = w.reshape((train_X.shape[1],2))
 	act = np.dot(x, w)
 	act -= act.max(axis=1)[:, np.newaxis]
 	exp_act = np.exp(act)
@@ -80,18 +85,12 @@ def neg_log_likelihood(w, x, y):
 
 
 np.random.seed()
-
-
-ret = fmin_bfgs(neg_log_likelihood, np.zeros((X.shape[1],2)), fprime=gradient, args=(X,y), full_output=True)
-
-
-
-res = ret[0].reshape((X.shape[1],2))
-
-out = classify(res, X)
+ret = fmin_bfgs(neg_log_likelihood, np.zeros((train_X.shape[1],2)), fprime=gradient, args=(train_X,train_y), full_output=True)
+res = ret[0].reshape((train_X.shape[1],2))
+out = classify(res, test_X)
 print out
 
-print y
+print test_y
 
 
 
