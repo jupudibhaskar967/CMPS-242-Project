@@ -3,8 +3,10 @@ Sentiment Analysis of yelp reviews using Logistic regression
 
 
 $python project.py
-Output:
 
+-------------------
+Output:
+-------------------
 Optimization terminated successfully.
          Current function value: 0.000000
          Iterations: 25
