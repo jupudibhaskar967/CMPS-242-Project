@@ -50,9 +50,6 @@ def softmax(w, x):
 	act -= act.max(axis=1)[:, np.newaxis]
 	exp_act = np.exp(act)
 	fin_res = exp_act/exp_act.sum(axis=1)[:,np.newaxis]
-	if np.sum(np.isnan(fin_res)== True) > 1:
-		print "softmax becomes numerically unstable", np.sum(np.isnan(fin_res)==True)
-		raise
 	return fin_res
 
 
