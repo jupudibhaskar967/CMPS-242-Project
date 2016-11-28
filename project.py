@@ -5,10 +5,15 @@ import math
 from multiprocessing.dummy import Pool as ThreadPool
 from threading import Thread, current_thread
 import multiprocessing
+from nltk import WordNetLemmatizer
+import sys
+sys.path.append("/usr/local/lib/python2.7/site-packages")
+lmtzr = WordNetLemmatizer()
 
-N=100000
+N=1000
 bag_of_words=[]
 numclasses = 2
+train_size = 4 * N / 5
 with open('yelp_academic_dataset_review.json', 'r') as file_req:
 	data_extraction = file_req.readlines()[0:N]
 		
@@ -18,24 +23,26 @@ df = pd.read_json(data_json_str)
 
 
 dictionary = dict()
-for i in range(0,N):
+for i in range(0,train_size):
 	for word in df['text'][i].split():
-		if word not in dictionary and df['stars'][i] > 3:
-			dictionary[word] = [1]
-			dictionary[word].append(0)
-		elif word not in dictionary and df['stars'][i] <= 3:
-			dictionary[word] = [0]
-			dictionary[word].append(1)
-		elif word in dictionary and df['stars'][i] > 3:
-			dictionary[word][0] +=1
-		elif word in dictionary and df['stars'][i] <= 3:		
-			dictionary[word][1] +=1
+		temp_word = word.lower()
+		temp_word = lmtzr.lemmatize(temp_word)
+		if temp_word not in dictionary and df['stars'][i] > 3:
+			dictionary[temp_word] = [1]
+			dictionary[temp_word].append(0)
+		elif temp_word not in dictionary and df['stars'][i] <= 3:
+			dictionary[temp_word] = [0]
+			dictionary[temp_word].append(1)
+		elif temp_word in dictionary and df['stars'][i] > 3:
+			dictionary[temp_word][0] +=1
+		elif temp_word in dictionary and df['stars'][i] <= 3:		
+			dictionary[temp_word][1] +=1
 		else:
 			pass
 
 
 for k,v in dictionary.items():
-	if (dictionary[k][0] < 0.2 * dictionary[k][1] and dictionary[k][1] > 10) or (dictionary[k][1] < 0.2 * dictionary[k][0] and dictionary[k][0] > 10):
+	if (dictionary[k][0] < 0.5 * dictionary[k][1]) or (dictionary[k][1] < 0.5 * dictionary[k][0]):
 		if len(k) > 2:
 			bag_of_words.append(k)
 	
@@ -55,8 +62,10 @@ def product_helper(args):
 def featureExtraction(p,t):		
 	temp = [0] * len(bag_of_words)
 	for word in p.split():
-		if word in bag_of_words and len(word)>2:
-			temp[bag_of_words.index(word)] += 1
+		temp_word = word.lower()
+		temp_word = lmtzr.lemmatize(temp_word)
+		if temp_word in bag_of_words and len(temp_word)>2:
+			temp[bag_of_words.index(temp_word)] += 1
 	
 	if sum(temp)!=0:
 		if t > 3:
@@ -79,7 +88,7 @@ def calculateParallel(threads):
 
 
  
-temp_X = calculateParallel(12)
+temp_X = calculateParallel(3)
 temp_X = [x for x in temp_X if x is not None]
 
 
