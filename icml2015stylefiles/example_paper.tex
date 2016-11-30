@@ -6,7 +6,12 @@
 %\documentstyle[icml2015,epsf,natbib]{article}
 % If you rely on Latex2e packages, like most moden people use this:
 \documentclass{article}
-
+\usepackage{pdflscape}
+\usepackage{tabularx}
+\usepackage{lipsum}
+\usepackage{amsmath,array}
+\usepackage{kantlipsum}
+\usepackage{float}
 % use Times
 \usepackage{times}
 % For figures
@@ -34,36 +39,45 @@
 % Employ the following version of the ``usepackage'' statement for
 % submitting the draft version of the paper for review.  This will set
 % the note in the first column to ``Under review.  Do not distribute.''
-\usepackage{icml2015} 
+%\usepackage[accepted]{icml2015} 
 
 % Employ this version of the ``usepackage'' statement after the paper has
 % been accepted, when creating the final version.  This will set the
 % note in the first column to ``Proceedings of the...''
-%\usepackage[accepted]{icml2015}
+\usepackage[accepted]{icml2015}
 
 
 % The \icmltitle you define below is probably too long as a header.
 % Therefore, a short form for the running title is supplied here:
-\icmltitlerunning{Submission and Formatting Instructions for ICML 2015}
+\icmltitlerunning{Sentimental analysis for yelp dataset}
 
 \begin{document} 
+
+
+
+
+
 \twocolumn[
 \icmltitle{Sentimental analysis for yelp dataset}
+
 
 % It is OKAY to include author information, even for blind
 % submissions: the style file will automatically remove it for you
 % unless you've provided the [accepted] option to the icml2015
 % package.
-
+\icmlauthor{Bhaskar Jupudi}{njupudi@ucsc.edu}
+\icmlauthor{Trivikram Bollempalli}{tbollemp@ucsc.edu}
+\icmlauthor{Chandrahas}{cjagadis@ucsc.edu}
+\icmlauthor{Karthikeyan}{karthik@ucsc.edu}
 % You may provide any keywords that you 
 % find helpful for describing your paper; these are used to populate 
 % the "keywords" metadata in the PDF but will not be shown in the document
 \icmlkeywords{boring formatting information, machine learning, ICML}
-%%\vskip 0.3in
+\vskip 0.3in
 ]
 
-\icmlauthor[1]{Bhaskar Jupudi}{njupudi@ucsc.edu}
-\icmlauthor[2]{Trivikram Bollempalli}{tbollemp@ucsc.edu}
+
+
 
 \begin{abstract} 
 In this project, we aim to perform sentiment analysis i.e., classifying whether the review is postive or negative using the yelp dataset based on reviews and ratings. The classification problem can be solved by a set of algorithms. Every algorithm has its own advantages and disadvantages in terms of accuracy and model complexity. 
@@ -84,20 +98,16 @@ We performed all our experiments on a server that has 24 physical cores (with hy
 \section{Results}
 
 \subsection{Effect of parallelism}
-
-\begin{table}[t]
+\begin{table}[H]
 \caption{Execution time for extraction of features in Logistic regression classifier.}
 \label{sample-table}
-\vskip 0.15in
 \begin{center}
 \begin{small}
 \begin{sc}
 \begin{tabular}{lcccr}
 \hline
-\abovespace
 Parallelism & Size & Features & Time \\
 \hline
-\abovespace
 No  & 100k & 9049 & 65m36.271s \\
 No  & 50k & 5323 & 18m32.441s \\
 Yes  & 100k & 9049 & 7m8.291s \\
@@ -107,25 +117,21 @@ Yes  & 50k & 5323 & 2m36.947s \\
 \end{sc}
 \end{small}
 \end{center}
-\vskip -0.1in
 \end{table}
 
 
 
 
-\begin{table}[t]
+\begin{table}[H]
 \caption{Parallelism vs countvectorizer()}
 \label{sample-table}
-\vskip 0.15in
 \begin{center}
 \begin{small}
 \begin{sc}
 \begin{tabular}{lcccr}
 \hline
-\abovespace
 Method & Features & Time \\
 \hline
-\abovespace
 Parallel  & 17083 & 42m27.394s \\
 countvectorizer  & 10k & Run-Time error \\
 \hline
@@ -133,8 +139,56 @@ countvectorizer  & 10k & Run-Time error \\
 \end{sc}
 \end{small}
 \end{center}
-\vskip -0.1in
 \end{table}
+
+
+
+\begin{table}[H]
+\caption{Performance analysis of LR and NB for binary classification}
+\label{sample-table}
+\begin{center}
+\begin{small}
+\begin{sc}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llllll}
+\hline
+Classifier & Features & Time & Accuracy & Precision & Recall\\
+\hline
+LR with gradient & 9049 & 102m39.110s & 84.81 & FILL & FILL \\
+LR with SGD & 13084 & 13m30.578s & 86.87 & [89.41, 80.76] & [91.75, 76.11] \\
+Naive Bayes & 199118 & 1m34.385s & 82.98 & [86.80, 73.96] & [88.73, 70.34] \\
+\hline
+\end{tabular}
+}
+\end{sc}
+\end{small}
+\end{center}
+\end{table}
+
+
+\begin{table}[H]
+\caption{Performance analysis of LR and NB for multiclass classification}
+\label{sample-table}
+\begin{center}
+\begin{small}
+\begin{sc}
+\resizebox{\columnwidth}{!}{%
+\begin{tabular}{llllll}
+\hline
+Classifier & Features & Time & Accuracy & Precision & Recall\\
+\hline
+LR with gradient & -- & 102m39.110s & 84.81 & FILL & FILL \\
+LR with SGD & -- & 13m30.578s & 86.87 & [89.41, 80.76] & [91.75, 76.11] \\
+Naive Bayes & 219383 & 3m29.505s & 60.60 & [58.5, 33.9, 34.2, 44.6, 75.6] & [77.8, 10.1, 17.2, 55.3, 74.3] \\
+\hline
+\end{tabular}
+}
+\end{sc}
+\end{small}
+\end{center}
+\end{table}
+
+
 
 
 
