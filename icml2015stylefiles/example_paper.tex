@@ -78,11 +78,63 @@ asasd
 asdasdas
 \section{Model Formulation}
 \section{Evaluations}
+
+We performed all our experiments on a server that has 24 physical cores (with hyperthreading 2) and 128GB of DRAM. 
+
 \section{Results}
 
+\subsection{Effect of parallelism}
+
+\begin{table}[t]
+\caption{Execution time for extraction of features in Logistic regression classifier.}
+\label{sample-table}
+\vskip 0.15in
+\begin{center}
+\begin{small}
+\begin{sc}
+\begin{tabular}{lcccr}
+\hline
+\abovespace
+Parallelism & Size & Features & Time \\
+\hline
+\abovespace
+No  & 100k & 9049 & 65m36.271s \\
+No  & 50k & 5323 & 18m32.441s \\
+Yes  & 100k & 9049 & 7m8.291s \\
+Yes  & 50k & 5323 & 2m36.947s \\
+\hline
+\end{tabular}
+\end{sc}
+\end{small}
+\end{center}
+\vskip -0.1in
+\end{table}
 
 
 
+
+\begin{table}[t]
+\caption{Parallelism vs countvectorizer()}
+\label{sample-table}
+\vskip 0.15in
+\begin{center}
+\begin{small}
+\begin{sc}
+\begin{tabular}{lcccr}
+\hline
+\abovespace
+Method & Features & Time \\
+\hline
+\abovespace
+Parallel  & 17083 & 42m27.394s \\
+countvectorizer  & 10k & Run-Time error \\
+\hline
+\end{tabular}
+\end{sc}
+\end{small}
+\end{center}
+\vskip -0.1in
+\end{table}
 
 
 
