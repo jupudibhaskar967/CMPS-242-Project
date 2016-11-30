@@ -95,16 +95,17 @@ For example, Naive Bayes classifier is faster to compute than Logistic Regressio
 We have extracted the features for respective algorithms using our own constraints and formulations instead of using count vectorizer. The reason we designed this because countvectorizer method is raising a run-time exception for a large dataset (\textgreater300k reviews).
 
 \subsection{Binary classification}
-For logistic regression, we need to form a data vector from a bag of words which contains the word count. To compute this, first we extracted 4/5th of our total dataset (which is indeed our training data) and extracted the words and their respective counts into a dictionary. Out of all these words, we have used three constraints to restrict the number of bag of words. One, if a word occurs for 'x' times in a positive review then we considered that word into bag of words only if the same word occurs for less than 4/10th times in the negative review and vice-versa. Second, total word count for a specific word should be more than 14 (arbitrary choice and can vary to adjust the accuracy). Third, we check if length of the word is more than 2 characters thereby restricting the number of features to 8895. The intuition behind this is,  
+For logistic regression, we need to form a data vector from a bag of words which contains the word count. To compute this, first we extracted 4/5th of our total dataset (which is our training data) and extracted the words and their respective counts into a dictionary. Out of all these words, we have used three constraints to restrict the number of bag of words. One, if a word occurs for 'x' times in a positive review then we considered that word into bag of words only if the same word occurs for less than 4/10th times in the negative review and vice-versa. Second, total word count for a specific word should be more than 14. Third, we check if length of the word is more than 2 characters thereby restricting the number of features to 8895. The exact numbers we have used is just an arbitrary choice and can vary to adjust the accuracy. The intuition behind this is, a word which have equal count over both postive and negative reviews and if a word occurs over all the reviews for very less frequent times (\textless10 or so which might be a typing mistake) will be having a very less impact over the decision rule and single character words may not effect the meaning of the review when considered as a whole.
 
+After obtaining bag of words, we formed data vector 'x', using multi-processing (as it is both compute and memory intensive operation) to make it more faster as each review can be formed into a count vector indepedently. For this we have used multiprocessing.Pool library in python. We used pool.map\_async() method to make all the individual vectors into a single data vector. 
+
+For Naive Bayes algorithm, we directly used all the words in the initial dictionary without using any constraints as there is no requirement for us to form the data vector as we did in logistic regression and the computation is way faster because of the assumption that features are independent of each other. 
 
 
 \subsection{Multiclass classification}
 
 
-
-
-
+We did the same thing for Naive Bayes algorithm, as we did in the binary classification.
 
 
 
