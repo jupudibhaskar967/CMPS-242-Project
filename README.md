@@ -1,6 +1,6 @@
 # CMPS-242-Project
 - Contributions.txt file contains the contributions made by each member for this project.
-
+- CMPS242_proj_autobots.pdf is the main project report.
 
 - Sentiment Analysis of yelp reviews using Logistic regression :
 
