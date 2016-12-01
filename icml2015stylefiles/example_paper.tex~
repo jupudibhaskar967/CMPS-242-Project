@@ -305,7 +305,7 @@ countvectorizer  & 10k & Run-Time error \\
 \begin{figure}[H]
   \caption{fmin\_l\_bfgs\_b vs stochastic gradient descent}
   \centering
-    \includegraphics[width=0.5\textwidth]{icml_numpapers}
+    \includegraphics[width=0.5\textwidth,height=3.5cm]{newtemp}
 \end{figure}
 
 
