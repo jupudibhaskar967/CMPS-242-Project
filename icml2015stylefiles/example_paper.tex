@@ -51,7 +51,7 @@
 
 % The \icmltitle you define below is probably too long as a header.
 % Therefore, a short form for the running title is supplied here:
-\icmltitlerunning{Sentimental analysis for yelp dataset}
+\icmltitlerunning{Sentiment analysis on yelp dataset}
 
 \begin{document} 
 
@@ -60,7 +60,7 @@
 
 
 \twocolumn[
-\icmltitle{Sentimental analysis for yelp dataset}
+\icmltitle{Sentiment analysis on yelp dataset}
 
 
 % It is OKAY to include author information, even for blind
@@ -69,9 +69,9 @@
 % package.
 \icmlauthor{Bhaskar Jupudi}{njupudi@ucsc.edu}
 \icmlauthor{Trivikram Bollempalli}{tbollemp@ucsc.edu}
-\icmlauthor{Chandrahas}{cjagadis@ucsc.edu}
-\icmlauthor{Karthikeyan}{karthik@ucsc.edu}
-\icmlauthor{GitHub Link}{\url{https://github.com/jupudibhaskar967/CMPS-242-Project.git}}
+\icmlauthor{Chandrahas Jagadish}{cjagadis@ucsc.edu}
+\icmlauthor{Karthikeyan Subramaniyan}{karthik@ucsc.edu}\\
+GitHub Link : \url{https://github.com/jupudibhaskar967/CMPS-242-Project.git}
 
 % You may provide any keywords that you 
 % find helpful for describing your paper; these are used to populate 
@@ -83,15 +83,17 @@
 
 
 
-\begin{abstract} 
-In this project, we aim to perform sentiment analysis i.e., classifying whether the review is postive or negative using the yelp dataset based on reviews and ratings. The classification problem can be solved by a set of algorithms. Every algorithm has its own advantages and disadvantages in terms of accuracy and model complexity. 
-
-For example, Naive Bayes classifier is faster to compute than Logistic Regression classifier for huge datasets. But the disadvantage with the former is that it assumes that features are independent where as the latter has no such assumptions which can lead to better precdiction. Our work mainly concentrates on implementing these two classifiers and techniques to make them perform much better. We have adopted multi-processing for feature extraction to make it way faster and also implemented two different approaches of Logistic regression for both binary and multi-class classfication. We have also implemented Naive Bayes classifier. Finally, we contrast these two algorithms based on time taken for execution and performance metrics like accuracy, precision and recall. 
-\end{abstract} 
+%%\begin{abstract} 
+ 
+%%\end{abstract}  
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Problem statement}
+In this project, we aim to perform sentiment analysis i.e., classifying whether the review is postive or negative using the yelp dataset based on reviews and ratings. The classification problem can be solved by a set of algorithms. Every algorithm has its own advantages and disadvantages in terms of accuracy and model complexity. 
+
+For example, Naive Bayes classifier is faster to compute than Logistic Regression classifier for huge datasets. But the disadvantage with the former is that it assumes that features are independent where as the latter has no such assumptions which can lead to better precdiction. Our work mainly concentrates on implementing these two classifiers and techniques to improve their performance. We have adopted multi-processing for feature extraction to make it considerably faster. We have implemented stochastic gradient descent as an optimizer for logistic regression. We have also implemented Naive Bayes classifier as a baseline to compare with logistic regression. Finally, we contrast these algorithms based on time taken for execution and performance metrics like accuracy, precision and recall.
+
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
