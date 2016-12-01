@@ -111,17 +111,28 @@ We did the same thing for Naive Bayes algorithm, as we did in the binary classif
 \section{Model Formulation}
 From Feature Engineering, we get input data and its labels. we will use this to train our logistic regression algorithm. We have implemented both logistic regression for two classes and also multi-class logistic regression.
 \subsection{Binary Logistic Regression}
-The probability of a class in logistic regression with two classes is given by:
+\begin{equation}
+P(C_{1}|X) = \vspace{10mm}   \frac{p(X|C_{1}).p(C_{1})}{p(X|C_{1}).p(C_{1}) + p(X|C_{2}).p(C_{2})}
+\end{equation}
 
+The probability for the first class is given by 
+\begin{equation}
+P(C_{1}|X) = y(x)  = \sigma(W\textsuperscript{T}X + b) 
+\end{equation}
+The likelihood is given as 
+\begin{equation}
+P(t|W) = \prod\limits_{n=1}^N (y_{n})^{t_{n}}(1-y_{n})^{1- t_{n}}
+\end{equation}
 
+The cost function is 
+\begin{equation}
+E(w) = -ln \hspace{1mm} p(t|W) = -\sum\limits_{n=1}^N t_{n}\hspace{1mm}ln(y_{n}) + (1-t_{n})ln(1-y_{n})
+\end{equation}
 
-We estimated the parameters using Maximum Log Likelihood estimation. For N data points, the likelihood function is : 
-
-
-Taking log on both sides and negation of it, we get the below negative log likelihood function:
-
-
-E(w) is our cost function which we want to minimize to estimate W parameters. The gradient for the cost function is given by:
+Gradient is calculated as follows
+\begin{equation}
+\nabla E(w) = \sum\limits_{n=1}^N (y_{n} - t_{n}) \phi_{n}
+\end{equation}
 
 
 
@@ -137,7 +148,7 @@ E(w) is our cost function which we want to minimize to estimate W parameters. Th
 We use this gradient in minimizing the cost function.
 
 \subsection{Optimization techniques}
-We used fmin\_l\_bfgs and stochastic gradient descent to minimize the cost function and obtain W. fmin\_l\_bfgs\_b is from scipy.optimize module in python. It uses the gradient that we calculated above in minimizing the cost function.
+We used fmin\_l\_bfgs\_b and stochastic gradient descent to minimize the cost function and obtain W. fmin\_l\_bfgs\_b is from scipy.optimize module in python. It uses the gradient that we calculated above in minimizing the cost function.
 
 We also implemented Stochastic Gradient Descent(SGD). SGD is similar to gradient descent algorithm. In gradient descent, we find gradient for the entire training dataset and then update W using W = W - alpha*gradient(w,x,y). Here alpha is the learning rate, W is the weight vector, x,y are training data. At each step, gradient descent update W, hoping that it minimizes the cost function. This is true as long as we choose proper alpha and gradient descent converges close to global minimum since the cost function is convex. In SGD, w is updated by finding gradient over each sample. We can also find gradient over a batch of training data which is a compromise between the two extremes. Finding gradient over a batch increases performance compared to single example because python can use the underlying vectorization libraries. We have implemented SGD in this way where you can specify batch size.
 
