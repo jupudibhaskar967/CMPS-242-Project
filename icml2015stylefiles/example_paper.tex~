@@ -221,48 +221,8 @@ countvectorizer  & 10k & Run-Time error \\
 
 
 
-\begin{table*}[b]
-\caption{Performance analysis of LR and NB for binary classification}
-\label{sample-table}
-\begin{center}
-\begin{small}
-\begin{sc}
-\begin{tabular}{llllll}
-\hline
-Classifier & Features & Time & Accuracy & Precision & Recall\\
-\hline
-LR with gradient & 9049 & 102m39.110s & 84.81 & FILL & FILL \\
-LR with SGD & 13084 & 13m30.578s & 86.87 & [89.41, 80.76] & [91.75, 76.11] \\
-Naive Bayes & 199118 & 1m34.385s & 82.98 & [86.80, 73.96] & [88.73, 70.34] \\
-\hline
-\end{tabular}
-\end{sc}
-\end{small}
-\end{center}
-\end{table*}
-
-
-\begin{table*}[b]
-\caption{Performance analysis of LR and NB for multiclass classification}
-\label{sample-table}
-\begin{center}
-\begin{small}
-\begin{sc}
-\begin{tabular}{llllll}
-\hline
-Classifier & Features & Time & Accuracy & Precision & Recall\\
-\hline
-LR with gradient & -- & 102m39.110s & 84.81 & FILL & FILL \\
-LR with SGD & -- & 13m30.578s & 86.87 & [89.41, 80.76] & [91.75, 76.11] \\
-Naive Bayes & 219383 & 3m29.505s & 60.60 & [58.5, 33.9, 34.2, 44.6, 75.6] & [77.8, 10.1, 17.2, 55.3, 74.3] \\
-\hline
-\end{tabular}
-\end{sc}
-\end{small}
-\end{center}
-\end{table*}
-
-
+\subsection{Comparision of LR and NB}
+\includegraphics[width=0.5\textwidth, height=5cm]{icml_numpapers}
 
 
 
