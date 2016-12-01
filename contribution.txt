@@ -9,5 +9,3 @@ We have split the work among ourselves and worked as pairs for implementing diff
 5) All four of us worked on preparing the report by divinding the subsections of the report like figures, tables, equations, text etc., amoung ourselves.
 6) All four of us had some brainstorming sessions together on deciding the constriants for pre-processing of the data.
 
-
-Finally because of team work we were able to achieve all our goals for the project right in time.
