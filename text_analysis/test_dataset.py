@@ -52,7 +52,7 @@ class DatasetTestCase(unittest.TestCase):
         dataset_stats = dataset.load()
         term_freq_prod_inv_doc_freq = dataset_stats.top_term_freq_prod_inv_doc_freq(50)
         for term, freq in term_freq_prod_inv_doc_freq.iteritems():
-            print('term:%s tf-idf:%s idf:%s' %(term, freq, dataset_stats.inverse_doc_freq(term)))
+            print('term:%s tf-idf:%s idf:%s' %(term, str(freq), str(dataset_stats.inverse_doc_freq(term))))
 
     def _build_review_stat(self):
         token_list = dataset.parse(TEST_DATA)

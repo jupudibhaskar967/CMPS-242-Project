@@ -9,7 +9,7 @@ from nltk.corpus import stopwords
 
 import constants
 import logging
-logging.basicConfig(filename='/home/karthik/PycharmProjects/cmps242/project/project_cmps242.log', level=logging.INFO)
+logging.basicConfig(filename='/home/karthik/PycharmProjects/cmps242/project/project_cmps242.log', level=logging.DEBUG)
 
 
 class DatasetStat(object):
@@ -52,8 +52,8 @@ class DatasetStat(object):
     def term_freq_inv_doc_freq(self, term, review_stat):
         return review_stat.term_freq(term) * self.inverse_doc_freq(term)
 
-    def __repr__(self):
-        return '%s' % str(self._terms)
+    # def __repr__(self):
+    #     return '%s' % str(self._terms)
 
 
 class ReviewStat(object):
@@ -84,8 +84,8 @@ class ReviewStat(object):
     def term_freq(self, term):
         return self._term_count.get(term, 0) / self._total_words
 
-    def __repr__(self):
-        return 'Total:%d (%s)' % (self._total_words, str(self._term_count))
+    # def __repr__(self):
+    #     return 'Total:%d (%s)' % (self._total_words, str(self._term_count))
 
 
 DATASET_STAT = DatasetStat()
