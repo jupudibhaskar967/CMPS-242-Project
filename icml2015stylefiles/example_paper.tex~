@@ -117,7 +117,7 @@ We did the same thing for Naive Bayes algorithm, as we did in the binary classif
 
 
 \subsection{Most distinctive features}
-The following tables shows a set of features which are disctinctive for both positive and negative reviews.
+The following tables shows a set of disctinctive features which shows a glimpse of our dataset.
 \begin{table}[H]
 \caption{Distinctive words for postive and negative classes.}
 \label{sample-table}
@@ -128,7 +128,7 @@ The following tables shows a set of features which are disctinctive for both pos
 \hline
 Class &  Disctinctive words\\
 \hline
-Positive  &  \pbox{20cm}{satisfying, heavenly, treats, sweetness, heaven!, \\incredible!, gem!, addicted, complement, great!!!,\\ cheers, awesome, cream, candies, concoction}\\
+Positive  &  \pbox{20cm}{satisfying, heavenly, treats, sweetness, heaven, \\incredible, gem, addicted, complement, great,\\ cheers, awesome, cream, candies, concoction}\\
 \hline
 Negative  &  \pbox{20cm}{uninterested, roaches, blatant, dispute, kills,\\ annoyed, unethical, plague, trash,creepy,\\ flavorless, disrespect, unsalted, manager, insulted}\\
 \hline
@@ -143,75 +143,80 @@ Negative  &  \pbox{20cm}{uninterested, roaches, blatant, dispute, kills,\\ annoy
 \section{Model Formulation}
 From Feature Engineering, we get input data and its labels. we will use this to train our logistic regression algorithm. We have implemented both logistic regression for two classes and also multi-class logistic regression.
 \subsection{Binary Logistic Regression}
-\begin{equation}
+
+
+\begin{equation*}
 P(C_{1}|X) = \vspace{10mm}   \frac{p(X|C_{1}).p(C_{1})}{p(X|C_{1}).p(C_{1}) + p(X|C_{2}).p(C_{2})}
-\end{equation}
+\end{equation*}
+
+
 
 The probability for the first class is given by 
-\begin{equation}
+\begin{equation*}
 P(C_{1}|X) = y(x)  = \sigma(W\textsuperscript{T}X + b) 
-\end{equation}
+\end{equation*}
 The likelihood is given as 
-\begin{equation}
+\begin{equation*}
 P(t|W) = \prod\limits_{n=1}^N (y_{n})^{t_{n}}(1-y_{n})^{1- t_{n}}
-\end{equation}
+\end{equation*}
 
 The cost function is 
-\begin{equation}
+\begin{equation*}
 E(w) = -ln  p(t|W) = -\sum\limits_{n=1}^N t_{n}ln(y_{n}) + (1-t_{n})ln(1-y_{n})
-\end{equation}
+\end{equation*}
 
 Gradient is calculated as follows
-\begin{equation}
+\begin{equation*}
 \nabla E(w) = \sum\limits_{n=1}^N (y_{n} - t_{n}) \phi_{n}
-\end{equation}
+\end{equation*}
 
 
 
 \subsection{Multiclass Logistic regression}
 The probability of a class in logistic regression with multiple
 classes is given by:
-\begin{equation}
+\begin{equation*}
 P(C_{k}|\boldsymbol{X}) =  \frac{p(\boldsymbol{X}|C_{k}).p(C_{k})}{\sum\limits_{j}p(\boldsymbol{X}|C_{j}).p(C_{j})}
-\end{equation}
+\end{equation*}
 that is,,
-\begin{equation}
+\begin{equation*}
 P(C_{k}|\boldsymbol{X}) =  y_{k}(\phi) = \frac{exp(a_{k})}{\sum\limits_{j} exp(a_{j})}
-\end{equation}
+\end{equation*}
 
 where 
 
-\begin{equation}
+\begin{equation*}
 a_{k} = ln p(\boldsymbol{X}|C_{k}) + ln  p(C_{k})
-\end{equation}
+\end{equation*}
 
 We estimated the parameters using Maximum Log Likelihood
 estimation. For N data points, the likelihood function is
 
-\begin{equation}
+\begin{equation*}
 p(T|\boldsymbol{w_{1},..,w_{k}}) = \prod\limits_{n=1}^N \prod\limits_{k=1}^K p(C_{k}|\phi_{n})^{t_{nk}} = \prod\limits_{n=1}^N \prod\limits_{k=1}^K y_{nk}^{t_{nk}}
-\end{equation}
+\end{equation*}
 
 where,
 
-\begin{equation}
+\begin{equation*}
 y_{nk} = y_k(\phi_{n})
-\end{equation}
+\end{equation*}
 Taking log on both sides
 and negation of it, we get the below negative log likelihood
 function:
 
-\begin{equation}
+\begin{equation*}
 E (\boldsymbol{w_{1}},..., \boldsymbol{w_{k}} ) = -ln p(T|\boldsymbol{w_{1}},...,\boldsymbol{w_{k}}) = - \sum\limits_{n=1}^N \sum\limits_{k=1}^K t_{nk} ln y_{nk}
-\end{equation}
+\end{equation*}
 
 E(w) is our cost
 function which we want to minimize to estimate W parameters.
 The gradient for the cost function is given by
 
-\begin{equation}
+
+\begin{equation*}
 \nabla E (\boldsymbol{w_{1}},..., \boldsymbol{w_{k}} ) = \sum\limits_{n=1}^N(y_{nj} - t_{nj}) \phi_{n}
-\end{equation}
+\end{equation*}
 
 
 
