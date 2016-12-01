@@ -337,21 +337,31 @@ We have extracted 100k reviews out of which we used 80k reviews for training and
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conclusion}
+We have performed Sentiment Analysis using logistic regression and compared the performance with naive Bayes approach. We have also predicted rating based on the reviews using multiclass logistic regression and compared with multinomial naive Bayes.
 
+
+The advantages of logistic regression classifier is that it does not have any assumptions on the features or the underlying data resulting in a better accuracy, precision and recall. But the downside of this classifier is it requires powerful machines (with advanced cpus’ and more memory) to compute the feature vector.
+
+
+The advantages of naive Bayes classifier is that the time taken for execution is considerably faster when compared to logistic regression classifier and it do not require any powerful  specifications of the machine. But the downside is that it assumes that features are independent of each other which sometimes results in a poor accuracy when the data has highly correlated features
+
+
+So we recommend Logistic regression if accuracy, precision or recall is an important criteria compared to the time taken for training. If the training data is not updated regularly, then we recommend logistic regression, as ‘W’ can be calculated once and used for predictions. We recommend naive Bayes, when the algorithm needs to be trained faster and accuracy can be compromised a little. We also recommend naive bayes, if the features are known to be independent of each other. We also suggest stochastic gradient descent rather than fmin\_l\_bfgs\_b for optimization in Logistic Regression.
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % In the unusual situation where you want a paper to appear in the
 % references without citing it in the main text, use \nocite
-\cite{langley00}
-\cite{knuthwebsite}
 
+\nocite{langley00}
+\nocite{knuthwebsite}
 \bibliography{example_paper}
+%\printbibliography[type=online]
 \bibliographystyle{icml2015}
 
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
-\section{Contributions}
-%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 \end{document} 
 
 
