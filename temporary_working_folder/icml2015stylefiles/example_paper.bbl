@@ -1,0 +1,29 @@
+\begin{thebibliography}{5}
+\providecommand{\natexlab}[1]{#1}
+\providecommand{\url}[1]{\texttt{#1}}
+\expandafter\ifx\csname urlstyle\endcsname\relax
+  \providecommand{\doi}[1]{doi: #1}\else
+  \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
+
+\bibitem[Bry()]{Bryan}
+Bryan travis smith.
+\newblock URL
+  \url{https://bryantravissmith.com/2015/12/27/\\implementing-logistic-regression-from-\\scratch-part-1-theory/}.
+
+\bibitem[cha()]{chameleon}
+Chameleon.
+\newblock URL \url{https://www.chameleoncloud.org/}.
+
+\bibitem[log()]{log}
+Logistic regression.
+\newblock URL \url{https://en.wikipedia.org/wiki/Logistic_regression}.
+
+\bibitem[nb()]{nb}
+Naive bayes.
+\newblock URL \url{https://en.wikipedia.org/wiki/Naive_Bayes_classifier}.
+
+\bibitem[pyt()]{python}
+Python documentation.
+\newblock URL \url{https://docs.python.org/2/library/multiprocessing.html}.
+
+\end{thebibliography}

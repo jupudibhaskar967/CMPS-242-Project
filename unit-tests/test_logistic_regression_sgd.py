@@ -11,24 +11,27 @@ import time
 from multiprocessing.dummy import Pool as ThreadPool
 from threading import Thread, current_thread
 import multiprocessing
+import string
 
-
-N=10000
-no_of_cores = 24
+N=1000
+alpha = 100.0
+epsilon = 0.00001
+batchsize = 256
 lam = 0.00001
+iterations = 25
+no_of_cores = 24
 train_size = 4 * N / 5
 bag_of_words=[]
 
-with open('../yelp_academic_dataset_review.json', 'r') as file_req:
+with open('test_yelp_academic_dataset_review.json', 'r') as file_req:
 	data_extraction = file_req.readlines()[0:N]
-
+		
 stop_words = ['d', 'theirs', 'ourselves', 'no', 'your', 'nor', 'other', 'off', 'very', 'from', 'now', 'only', 'between', 'too', 'having', 'm', 'y', 'myself', 'did', 'am', 'those', 'does', 'own', 'if', 'then', 'here', 'same', 't', 'our', 'wasn', 'until', 'you', 'below', 'once', 'an', 'ain', 'the', 'being', 'himself', 'more', 'didn', 'themselves', 'or', 'a', 'which', 'few', 'some', 'to', 'through', 'out', 'over', 'of', 'up', 'isn', 'aren', 'mightn', 'we', 'll', 'yourself', 'it', 'so', 'my', 'against', 'by', 'itself', 'this', 'ours', 'again', 'that', 'while', 'do', 'his', 'not', 'but', 'she', 're', 'can', 'with', 'about', 'haven', 'me', 'hadn', 'shouldn', 'before', 'hasn', 'in', 'been', 'who', 'her', 'all', 'there', 'after', 'most', 'their', 'had', 'i', 'than', 'doesn', 'down', 'be', 'him', 'shan', 'whom', 'don', 'will', 'needn', 'won', 'why', 'how', 'have', 'are', 'doing', 'further', 'were', 'ma', 'such', 'herself', 'these', 'hers', 'o', 'under', 'and', 'both', 'he', 'where', 'at', 'above', 's', 'they', 'is', 've', 'wouldn', 'its', 'any', 'yourselves', 'because', 'weren', 'what', 'just', 'them', 'for', 'on', 'as', 'should', 'each', 'during', 'couldn', 'was', 'mustn', 'when', 'into', 'yours', 'has']
 
 stop_words_dict = dict()
 for i in range(0, len(stop_words)):
 	stop_words_dict[stop_words[i]] = 1
 
-		
 data_extraction = map(lambda p: p.rstrip(), data_extraction)
 data_json_str = "[" + ','.join(data_extraction) + "]"
 df = pd.read_json(data_json_str)
@@ -72,7 +75,6 @@ def featureExtraction(p,t):
 	temp = [0] * len(bag_of_words)
 	for word in p.split():
 		temp_word = word.lower()
-		#temp_word = lmtzr.lemmatize(temp_word)
 		if temp_word in bag_of_words and len(temp_word)>2:
 			temp[bag_of_words.index(temp_word)] += 1
 	
@@ -118,7 +120,6 @@ for i in range(train_size,numROWS):
 	test_X.append(temp_X[i][0:numCOLUMNS-1])
 	test_y.append(temp_X[i][numCOLUMNS-1:numCOLUMNS])
 
-
 train_X = np.array(train_X)
 test_X = np.array(test_X)
 train_y = np.array(train_y)
@@ -161,11 +162,28 @@ def neg_log_likelihood(w, x, y):
 	neg_log = neg_log + (lam * np.sum((w*w)/(2*len(x))))
 	return neg_log
 
+def stoc_grad_desc(x, y):
+    w = np.zeros((train_X.shape[1],1), dtype=np.uint32)
+    nll_prev = neg_log_likelihood(w, x, y)
+    for i in range(0,iterations):
+        k = 0
+        while k < len(x):
+	    end = min(k+batchsize, len(x))
+            w = w - (alpha * gradient(w, x[k:end,:], y[k:end, :]))
+            k = k + batchsize
 
-ret = optimize.fmin_l_bfgs_b(neg_log_likelihood, np.zeros((train_X.shape[1],1)), fprime=gradient, args=(train_X,train_y))
+        nll = neg_log_likelihood(w, x, y) 
+        diff = np.abs(nll - nll_prev)
+        nll_prev = nll;
+        if diff < epsilon :
+            print diff
+            print "iteration no : ", i
+            break
 
-res = ret[0].reshape((train_X.shape[1],1))
+    print "iteration no : ", i
+    return w
 
+res = stoc_grad_desc(train_X, train_y)
 out = classify(res, test_X)
 print np.transpose(out)
 
@@ -183,7 +201,6 @@ for i in range(0, len(test_y)):
 		else:
 			confusion_matrix[0][1]+=1
 
-#print " accuracy is ", (count/float(len(test_y)))*100
 
 accuracy = (100 * (confusion_matrix[0][0] + confusion_matrix[1][1])) / float(len(test_y))
 precision1 = (100 * confusion_matrix[0][0]) / float(confusion_matrix[0][0] + confusion_matrix[0][1])

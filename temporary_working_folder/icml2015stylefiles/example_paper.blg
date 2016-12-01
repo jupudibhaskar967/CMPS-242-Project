@@ -1,0 +1,67 @@
+This is BibTeX, Version 0.99d (TeX Live 2015/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: example_paper.aux
+The style file: icml2015.bst
+Database file #1: example_paper.bib
+Warning--entry type for "chameleon" isn't style-file defined
+--line 119 of file example_paper.bib
+Warning--entry type for "Bryan" isn't style-file defined
+--line 131 of file example_paper.bib
+Warning--entry type for "python" isn't style-file defined
+--line 143 of file example_paper.bib
+Warning--entry type for "log" isn't style-file defined
+--line 155 of file example_paper.bib
+Warning--entry type for "nb" isn't style-file defined
+--line 165 of file example_paper.bib
+Warning--to sort, need author or key in chameleon
+Warning--to sort, need author or key in Bryan
+Warning--to sort, need author or key in python
+Warning--to sort, need author or key in log
+Warning--to sort, need author or key in nb
+Warning--empty year in Bryan
+Warning--empty year in chameleon
+Warning--empty year in log
+Warning--empty year in nb
+Warning--empty year in python
+You've used 5 entries,
+            2773 wiz_defined-function locations,
+            608 strings with 5237 characters,
+and the built_in function-call counts, 1233 in all, are:
+= -- 115
+> -- 0
+< -- 0
++ -- 5
+- -- 0
+* -- 82
+:= -- 105
+add.period$ -- 10
+call.type$ -- 5
+change.case$ -- 15
+chr.to.int$ -- 5
+cite$ -- 25
+duplicate$ -- 75
+empty$ -- 176
+format.name$ -- 0
+if$ -- 296
+int.to.chr$ -- 1
+int.to.str$ -- 1
+missing$ -- 0
+newline$ -- 28
+num.names$ -- 0
+pop$ -- 70
+preamble$ -- 1
+purify$ -- 10
+quote$ -- 0
+skip$ -- 71
+stack$ -- 0
+substring$ -- 15
+swap$ -- 5
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 55
+warning$ -- 10
+while$ -- 0
+width$ -- 0
+write$ -- 52
+(There were 15 warnings)

@@ -13,13 +13,13 @@ from threading import Thread, current_thread
 import multiprocessing
 
 
-N=10000
+N=1000
 no_of_cores = 24
 lam = 0.00001
 train_size = 4 * N / 5
 bag_of_words=[]
 
-with open('../yelp_academic_dataset_review.json', 'r') as file_req:
+with open('test_yelp_academic_dataset_review.json', 'r') as file_req:
 	data_extraction = file_req.readlines()[0:N]
 
 stop_words = ['d', 'theirs', 'ourselves', 'no', 'your', 'nor', 'other', 'off', 'very', 'from', 'now', 'only', 'between', 'too', 'having', 'm', 'y', 'myself', 'did', 'am', 'those', 'does', 'own', 'if', 'then', 'here', 'same', 't', 'our', 'wasn', 'until', 'you', 'below', 'once', 'an', 'ain', 'the', 'being', 'himself', 'more', 'didn', 'themselves', 'or', 'a', 'which', 'few', 'some', 'to', 'through', 'out', 'over', 'of', 'up', 'isn', 'aren', 'mightn', 'we', 'll', 'yourself', 'it', 'so', 'my', 'against', 'by', 'itself', 'this', 'ours', 'again', 'that', 'while', 'do', 'his', 'not', 'but', 'she', 're', 'can', 'with', 'about', 'haven', 'me', 'hadn', 'shouldn', 'before', 'hasn', 'in', 'been', 'who', 'her', 'all', 'there', 'after', 'most', 'their', 'had', 'i', 'than', 'doesn', 'down', 'be', 'him', 'shan', 'whom', 'don', 'will', 'needn', 'won', 'why', 'how', 'have', 'are', 'doing', 'further', 'were', 'ma', 'such', 'herself', 'these', 'hers', 'o', 'under', 'and', 'both', 'he', 'where', 'at', 'above', 's', 'they', 'is', 've', 'wouldn', 'its', 'any', 'yourselves', 'because', 'weren', 'what', 'just', 'them', 'for', 'on', 'as', 'should', 'each', 'during', 'couldn', 'was', 'mustn', 'when', 'into', 'yours', 'has']
