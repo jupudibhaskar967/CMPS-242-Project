@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.19)  30 NOV 2016 19:41
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.19)  30 NOV 2016 19:43
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -645,7 +645,11 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <14.4> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 81.
+LaTeX Font Info:    Try loading font information for OT1+pcr on input line 81.
 
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ot1pcr.fd
+File: ot1pcr.fd 2001/06/04 font definitions for OT1/pcr.
+)
 Overfull \hbox (5.1225pt too wide) in paragraph at lines 86--86
  [] 
  []
@@ -698,7 +702,7 @@ Overfull \hbox (15.61836pt too wide) detected at line 204
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
-<icml_numpapers.pdf, id=49, 498.86375pt x 416.55624pt>
+<icml_numpapers.pdf, id=51, 498.86375pt x 416.55624pt>
 File: icml_numpapers.pdf Graphic file (type pdf)
 
 <use icml_numpapers.pdf>
@@ -760,11 +764,11 @@ LaTeX Warning: There were multiply-defined labels.
 Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 342.
  ) 
 Here is how much of TeX's memory you used:
- 13885 strings out of 493085
- 237165 string characters out of 6136917
+ 13921 strings out of 493085
+ 237672 string characters out of 6136917
  654340 words of memory out of 5000000
- 17146 multiletter control sequences out of 15000+600000
- 28721 words of font info for 58 fonts, out of 8000000 for 9000
+ 17176 multiletter control sequences out of 15000+600000
+ 29536 words of font info for 61 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,16n,45p,10407b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
@@ -778,14 +782,15 @@ ts/cmextra/cmmib7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
 s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
 r7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 ></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/
-share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
-exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
-/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
-s/utmri8a.pfb>
-Output written on example_paper.pdf (4 pages, 156241 bytes).
+share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive
+/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fon
+ts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
+mes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
+>
+Output written on example_paper.pdf (4 pages, 166566 bytes).
 PDF statistics:
- 136 PDF objects out of 1000 (max. 8388607)
- 112 compressed objects within 2 object streams
+ 141 PDF objects out of 1000 (max. 8388607)
+ 116 compressed objects within 2 object streams
  41 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
