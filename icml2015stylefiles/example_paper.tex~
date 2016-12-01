@@ -13,6 +13,7 @@
 \usepackage{amsmath,array}
 \usepackage{kantlipsum}
 \usepackage{float}
+\usepackage{pbox}
 % use Times
 \usepackage{times}
 % For figures
@@ -118,16 +119,17 @@ We find a set of features which are disctinctive for both positive and negative 
 
 
 \begin{table}[H]
-\caption{Execution time for extraction of features in Logistic regression classifier.}
+\caption{Distinctive words for postive and negative classes}
 \label{sample-table}
 \begin{small}
 \begin{sc}
 \begin{adjustbox}{width=0.5\textwidth}
-\begin{tabular}{lllll}
+\begin{tabular}{l|l}
 \hline
 Class &  Disctinctive words\\
 \hline
-Positive  &  asd,asda,sd,as,d,as,d,as,da,sd,\\asd,as,d,a,ds,a,sd\\
+Positive  &  \pbox{20cm}{This is the first \\ cell as da sd as d asd as d a \\dascell as da sd as d asd as d a das}\\
+\hline
 Negative  &  ad,as,d,sad,as,d,sa,das,d,asd,a,d,a\\
 \hline
 \end{tabular}
