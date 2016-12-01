@@ -95,7 +95,7 @@ For example, Naive Bayes classifier is faster to compute than Logistic Regressio
 We have extracted the features for respective algorithms using our own constraints and formulations instead of using count vectorizer. The reason we designed this because countvectorizer method is raising a run-time exception for a large dataset (\textgreater300k reviews).
 
 \subsection{Binary classification}
-For logistic regression, we need to form a data vector from a bag of words which contains the word count. To compute this, first we extracted 4/5th of our total dataset (which is our training data) and extracted the words and their respective counts into a dictionary. Out of all these words, we have used three constraints to restrict the number of bag of words. One, if a word occurs for 'x' times in a positive review then we considered that word into bag of words only if the same word occurs for less than 4/10th times in the negative review and vice-versa. Second, total word count for a specific word should be more than 14. Third, we check if length of the word is more than 2 characters thereby restricting the number of features to 8895. The exact numbers we have used is just an arbitrary choice and can vary to adjust the accuracy. The intuition behind this is, a word which have equal count over both postive and negative reviews and if a word occurs over all the reviews for very less frequent times (\textless10 or so which might be a typing mistake) will be having a very less impact over the decision rule and single character words may not effect the meaning of the review when considered as a whole.
+For logistic regression, we need to form a data vector from a bag of words which contains the word count. To compute this, first we extracted 4/5 th of our total dataset (which is our training data) and extracted the words and their respective counts into a dictionary. Out of all these words, we have used three constraints to restrict the number of bag of words. One, if a word occurs for 'x' times in a positive review then we considered that word into bag of words only if the same word occurs for less than 4/10 th times in the negative review and vice-versa. Second, total word count for a specific word should be more than 14. Third, we check if length of the word is more than 2 characters thereby restricting the number of features to 8895. The exact numbers we have used is just an arbitrary choice and can vary to adjust the accuracy. The intuition behind this is, a word which have equal count over both postive and negative reviews and if a word occurs over all the reviews for very less frequent times (\textless10 or so which might be a typing mistake) will be having a very less impact over the decision rule and single character words may not effect the meaning of the review when considered as a whole.
 
 After obtaining bag of words, we formed data vector 'x', using multi-processing (as it is both compute and memory intensive operation) to make it more faster as each review can be formed into a count vector indepedently. For this we have used multiprocessing.Pool library in python. We used pool.map\_async() method to make all the individual vectors into a single data vector. 
 
@@ -104,10 +104,9 @@ For Naive Bayes algorithm, we directly used all the words in the initial diction
 
 \subsection{Multiclass classification}
 
+For logistic regression, we did not use the same constriants as we did earlier because there are multiple classes instead of 2. Alternatively, we have selected most frequent 10k words from the dictionary after extracting the reviews. Later, we have formed the data vector 'x' in the same way as above using multi-processing.   
 
 We did the same thing for Naive Bayes algorithm, as we did in the binary classification.
-
-
 
 \section{Model Formulation}
 From Feature Engineering, we get input data and its labels. we will use this to train our logistic regression algorithm. We have implemented both logistic regression for two classes and also multi-class logistic regression.
@@ -138,7 +137,9 @@ E(w) is our cost function which we want to minimize to estimate W parameters. Th
 We use this gradient in minimizing the cost function.
 
 \subsection{Optimization techniques}
+We used fmin\_l\_bfgs and stochastic gradient descent to minimize the cost function and obtain W. fmin\_l\_bfgs is from scipy.optimize module in python. It uses the gradient that we calculated above in minimizing the cost function.
 
+We also implemented Stochastic Gradient Descent(SGD). SGD is similar to gradient descent algorithm. In gradient descent, we find gradient for the entire training dataset and then update W using W = W - alpha*gradient(w,x,y). Here alpha is the learning rate, W is the weight vector, x,y are training data. At each step, gradient descent update W, hoping that it minimizes the cost function. This is true as long as we choose proper alpha and gradient descent converges close to global minimum since the cost function is convex. In SGD, w is updated by finding gradient over each sample. We can also find gradient over a batch of training data which is a compromise between the two extremes. Finding gradient over a batch increases performance compared to single example because python can use the underlying vectorization libraries. We have implemented SGD in this way where you can specify batch size.
 
 \section{Evaluations}
 
@@ -146,7 +147,11 @@ We performed all our experiments on a server that has 24 physical cores (with hy
 
 \section{Results}
 
+
 \subsection{Effect of parallelism}
+We implemented multi-processing to compute the feature vector in order to make it faster as it is a compute intensive operation. The following table is drawn to illustrate the time taken for extracting the features from data of size 100k and 50k reviews. With parallelism, we are able to achieve it in approximately 1/10 th of the total time without parallelism.
+
+
 \begin{table}[H]
 \caption{Execution time for extraction of features in Logistic regression classifier.}
 \label{sample-table}
@@ -169,6 +174,7 @@ Yes  & 50k & 5323 & 2m36.947s \\
 \end{table}
 
 
+As explained earlier, we have designed our feature extraction algorithm because the built-in function countvectorizer() is throwing a run-time exception for a huge dataset which is beyond 300k reviews.
 
 
 \begin{table}[H]
