@@ -119,7 +119,7 @@ We did the same thing for Naive Bayes algorithm, as we did in the binary classif
 \subsection{Most distinctive features}
 The following tables shows a set of disctinctive features which shows a glimpse of our dataset.
 \begin{table}[H]
-\caption{Distinctive words for postive and negative classes.}
+\caption{Distinctive words of the dataset.}
 \label{sample-table}
 \begin{small}
 \begin{sc}
@@ -318,12 +318,6 @@ countvectorizer  & 10k & Run-Time error \\
 
 
 \subsection{Multiclass classification}
-\begin{figure}[H]
-  \caption{fmin\_l\_bfgs\_b vs stochastic gradient descent}
-  \centering
-    \includegraphics[width=0.5\textwidth]{icml_numpapers}
-\end{figure}
-
 
 \begin{figure}[H]
   \caption{stochastic gradient descent vs Naive Bayes classifier}
