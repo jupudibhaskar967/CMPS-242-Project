@@ -9,6 +9,7 @@
 \usepackage{pdflscape}
 \usepackage{tabularx}
 \usepackage{lipsum}
+\usepackage{adjustbox}
 \usepackage{amsmath,array}
 \usepackage{kantlipsum}
 \usepackage{float}
@@ -107,6 +108,35 @@ For Naive Bayes algorithm, we directly used all the words in the initial diction
 For logistic regression, we did not use the same constriants as we did earlier because there are multiple classes instead of 2. Alternatively, we have selected most frequent 10k words from the dictionary after extracting the reviews. Later, we have formed the data vector 'x' in the same way as above using multi-processing.   
 
 We did the same thing for Naive Bayes algorithm, as we did in the binary classification.
+
+
+\subsection{Most distinctive features}
+We find a set of features which are disctinctive for both positive and negative reviews. The following tables shows such words:
+
+
+
+
+
+\begin{table}[H]
+\caption{Execution time for extraction of features in Logistic regression classifier.}
+\label{sample-table}
+\begin{small}
+\begin{sc}
+\begin{adjustbox}{width=0.5\textwidth}
+\begin{tabular}{lllll}
+\hline
+Class &  Disctinctive words\\
+\hline
+Positive  &  asd,asda,sd,as,d,as,d,as,da,sd,\\asd,as,d,a,ds,a,sd\\
+Negative  &  ad,as,d,sad,as,d,sa,das,d,asd,a,d,a\\
+\hline
+\end{tabular}
+\end{adjustbox}
+\end{sc}
+\end{small}
+\end{table}
+
+
 
 \section{Model Formulation}
 From Feature Engineering, we get input data and its labels. we will use this to train our logistic regression algorithm. We have implemented both logistic regression for two classes and also multi-class logistic regression.
