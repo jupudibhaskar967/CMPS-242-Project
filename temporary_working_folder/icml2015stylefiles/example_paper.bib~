@@ -49,12 +49,13 @@
   year= {2011},
 }
 
-@online{knuthwebsite,
-    author    = "Donald Knuth",
-    title     = "Knuth: Computers and Typesetting",
-    url       = "http://www-cs-faculty.stanford.edu/~uno/abcde.html",
-    keywords  = "latex,knuth"
+@misc{anonymous1,
+  title= {Suppressed for Anonymity},
+  author= {Author, N. N.},
+  year= {2011},
+  
 }
+
 
 
 
