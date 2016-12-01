@@ -29,4 +29,4 @@ To run any python file in the code base, type 'python file_name.py'
 UNIT TEST CASES:
 Unit test cases are present in unit-tests folder.
 To run any python file in this folder, type 'python file_name.py'
-The test file names and their utility are same as the files described above with an 'test' appended to their names
+The test file names and their utility are same as the files described above with an 'test' appended to their names. The data file required for the program is already placed in that folder.
