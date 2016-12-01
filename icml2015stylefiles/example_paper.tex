@@ -137,13 +137,25 @@ E(w) is our cost function which we want to minimize to estimate W parameters. Th
 We use this gradient in minimizing the cost function.
 
 \subsection{Optimization techniques}
-We used fmin\_l\_bfgs and stochastic gradient descent to minimize the cost function and obtain W. fmin\_l\_bfgs is from scipy.optimize module in python. It uses the gradient that we calculated above in minimizing the cost function.
+We used fmin\_l\_bfgs\_b and stochastic gradient descent to minimize the cost function and obtain W. fmin\_l\_bfgs\_b is from scipy.optimize module in python. It uses the gradient that we calculated above in minimizing the cost function.
 
 We also implemented Stochastic Gradient Descent(SGD). SGD is similar to gradient descent algorithm. In gradient descent, we find gradient for the entire training dataset and then update W using W = W - alpha*gradient(w,x,y). Here alpha is the learning rate, W is the weight vector, x,y are training data. At each step, gradient descent update W, hoping that it minimizes the cost function. This is true as long as we choose proper alpha and gradient descent converges close to global minimum since the cost function is convex. In SGD, w is updated by finding gradient over each sample. We can also find gradient over a batch of training data which is a compromise between the two extremes. Finding gradient over a batch increases performance compared to single example because python can use the underlying vectorization libraries. We have implemented SGD in this way where you can specify batch size.
 
 \section{Evaluations}
 
-We performed all our experiments on a server that has 24 physical cores (with hyperthreading 2) and 128GB of DRAM. 
+We performed all our experiments on a server that has 24 physical cores (with hyperthreading 2) and 128GB of DRAM. We are testing our binary and multinomial logistic regression algorithms on yelp dataset. We are using three metrics viz., Accuracy, Precision, Recall to evaluate these algorithms. These three metrics are calculated as follows.
+
+
+Accuracy = (number of correctly classified test cases) / (total number of test cases) 
+
+
+Precision = (true positives) / (true positives + false positives)
+
+
+Recall =  (true positives) / (true positives + false negatives)
+
+
+We also compare the performance of our logistic regression algorithm with naive bayes approach, which we implemented from scratch and discuss tradeoffs. We compare the performance of logistic regression when fmin\_l\_bfgs\_b and Stochastic Gradient Descent are used as optimizers.
 
 \section{Results}
 
@@ -198,13 +210,12 @@ countvectorizer  & 10k & Run-Time error \\
 
 
 
-\begin{table}[H]
+\begin{table*}[b]
 \caption{Performance analysis of LR and NB for binary classification}
 \label{sample-table}
 \begin{center}
 \begin{small}
 \begin{sc}
-\resizebox{\columnwidth}{!}{%
 \begin{tabular}{llllll}
 \hline
 Classifier & Features & Time & Accuracy & Precision & Recall\\
@@ -214,20 +225,18 @@ LR with SGD & 13084 & 13m30.578s & 86.87 & [89.41, 80.76] & [91.75, 76.11] \\
 Naive Bayes & 199118 & 1m34.385s & 82.98 & [86.80, 73.96] & [88.73, 70.34] \\
 \hline
 \end{tabular}
-}
 \end{sc}
 \end{small}
 \end{center}
-\end{table}
+\end{table*}
 
 
-\begin{table}[H]
+\begin{table*}[b]
 \caption{Performance analysis of LR and NB for multiclass classification}
 \label{sample-table}
 \begin{center}
 \begin{small}
 \begin{sc}
-\resizebox{\columnwidth}{!}{%
 \begin{tabular}{llllll}
 \hline
 Classifier & Features & Time & Accuracy & Precision & Recall\\
@@ -237,11 +246,10 @@ LR with SGD & -- & 13m30.578s & 86.87 & [89.41, 80.76] & [91.75, 76.11] \\
 Naive Bayes & 219383 & 3m29.505s & 60.60 & [58.5, 33.9, 34.2, 44.6, 75.6] & [77.8, 10.1, 17.2, 55.3, 74.3] \\
 \hline
 \end{tabular}
-}
 \end{sc}
 \end{small}
 \end{center}
-\end{table}
+\end{table*}
 
 
 
