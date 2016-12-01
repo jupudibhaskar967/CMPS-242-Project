@@ -1,20 +1,29 @@
-\begin{thebibliography}{2}
+\begin{thebibliography}{5}
 \providecommand{\natexlab}[1]{#1}
 \providecommand{\url}[1]{\texttt{#1}}
 \expandafter\ifx\csname urlstyle\endcsname\relax
   \providecommand{\doi}[1]{doi: #1}\else
   \providecommand{\doi}{doi: \begingroup \urlstyle{rm}\Url}\fi
 
-\bibitem[Knuth()]{knuthwebsite}
-Knuth, Donald.
-\newblock Knuth: Computers and typesetting.
-\newblock URL \url{http://www-cs-faculty.stanford.edu/~uno/abcde.html}.
+\bibitem[Bry()]{Bryan}
+Bryan travis smith.
+\newblock URL
+  \url{https://bryantravissmith.com/2015/12/27/\\implementing-logistic-regression-from-\\scratch-part-1-theory/}.
 
-\bibitem[Langley(2000)]{langley00}
-Langley, P.
-\newblock Crafting papers on machine learning.
-\newblock In Langley, Pat (ed.), \emph{Proceedings of the 17th International
-  Conference on Machine Learning (ICML 2000)}, pp.\  1207--1216, Stanford, CA,
-  2000. Morgan Kaufmann.
+\bibitem[cha()]{chameleon}
+Chameleon.
+\newblock URL \url{https://www.chameleoncloud.org/}.
+
+\bibitem[log()]{log}
+Logistic regression.
+\newblock URL \url{https://en.wikipedia.org/wiki/Logistic_regression}.
+
+\bibitem[nb()]{nb}
+Naive bayes.
+\newblock URL \url{https://en.wikipedia.org/wiki/Naive_Bayes_classifier}.
+
+\bibitem[pyt()]{python}
+Python documentation.
+\newblock URL \url{https://docs.python.org/2/library/multiprocessing.html}.
 
 \end{thebibliography}

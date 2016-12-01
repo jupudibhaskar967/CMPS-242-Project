@@ -352,9 +352,14 @@ So we recommend Logistic regression if accuracy, precision or recall is an impor
 % In the unusual situation where you want a paper to appear in the
 % references without citing it in the main text, use \nocite
 
-\nocite{langley00}
-\nocite{knuthwebsite}
+
+\nocite{chameleon}
+\nocite{Bryan}
+\nocite{python}
+\nocite{log}
+\nocite{nb}
 \bibliography{example_paper}
+%\printbibliography
 %\printbibliography[type=online]
 \bibliographystyle{icml2015}
 

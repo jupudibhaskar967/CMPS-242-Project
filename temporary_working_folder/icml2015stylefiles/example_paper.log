@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.19)  1 DEC 2016 02:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.19)  1 DEC 2016 02:48
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -752,34 +752,55 @@ Missing character: There is no € in font ptmr7t!
 Missing character: There is no ™ in font ptmr7t!
 (./example_paper.bbl
 Underfull \hbox (badness 10000) in paragraph at lines 9--12
-[][]$\OT1/pcr/m/n/10 http : / / www-[]cs-[]faculty . stanford . edu /
+[]\OT1/ptm/m/n/10 Bryan travis smith.  URL [][]$\OT1/pcr/m/n/10 https : / /
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 9--12
+\OT1/pcr/m/n/10 bryantravissmith . com / 2015 / 12 / 27 /
+ []
+
+
+Overfull \hbox (17.12251pt too wide) in paragraph at lines 9--12
+\OT1/pcr/m/n/10 \implementing-[]logistic-[]regression-[]from-[] \
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--28
+[]\OT1/ptm/m/n/10 Python doc-u-men-ta-tion.  URL [][]$\OT1/pcr/m/n/10 https : /
+ / docs .
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 26--28
+\OT1/pcr/m/n/10 python . org / 2 / library / multiprocessing .
  []
 
 )
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 365.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 368.
  [4 <./sgdvsbayes.pdf> <./cropped_Book2.pdf
 
 pdfTeX warning: pdflatex (file ./cropped_Book2.pdf): PDF inclusion: multiple pd
 fs with page group included in a single page
 >]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 365.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 368.
  (./example_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 365.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 365.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 368.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 368.
 Package rerunfilecheck Info: File `example_paper.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 365.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 368.
  ) 
 Here is how much of TeX's memory you used:
- 13921 strings out of 493085
- 237749 string characters out of 6136917
+ 13930 strings out of 493085
+ 237823 string characters out of 6136917
  653340 words of memory out of 5000000
- 17185 multiletter control sequences out of 15000+600000
- 28688 words of font info for 59 fonts, out of 8000000 for 9000
+ 17193 multiletter control sequences out of 15000+600000
+ 27004 words of font info for 57 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  39i,17n,45p,10407b,363s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
@@ -796,12 +817,11 @@ r7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
 share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive
 /texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fon
 ts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
-mes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
->
-Output written on example_paper.pdf (4 pages, 630508 bytes).
+mes/utmr8a.pfb>
+Output written on example_paper.pdf (4 pages, 623075 bytes).
 PDF statistics:
- 157 PDF objects out of 1000 (max. 8388607)
- 126 compressed objects within 2 object streams
- 31 named destinations out of 1000 (max. 500000)
+ 167 PDF objects out of 1000 (max. 8388607)
+ 137 compressed objects within 2 object streams
+ 34 named destinations out of 1000 (max. 500000)
  16 words of extra memory for PDF output out of 10000 (max. 10000000)
 
