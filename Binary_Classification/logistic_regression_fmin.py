@@ -13,20 +13,21 @@ from threading import Thread, current_thread
 import multiprocessing
 
 
-N=100000
-alpha = 100.0
-epsilon = 0.00001
-batchsize = 256
+N=10000
 no_of_cores = 24
-lam = 0.00
-iterations = 25
+lam = 0.00001
 train_size = 4 * N / 5
 bag_of_words=[]
 
-time1 = time.time()
-
 with open('../yelp_academic_dataset_review.json', 'r') as file_req:
 	data_extraction = file_req.readlines()[0:N]
+
+stop_words = ['d', 'theirs', 'ourselves', 'no', 'your', 'nor', 'other', 'off', 'very', 'from', 'now', 'only', 'between', 'too', 'having', 'm', 'y', 'myself', 'did', 'am', 'those', 'does', 'own', 'if', 'then', 'here', 'same', 't', 'our', 'wasn', 'until', 'you', 'below', 'once', 'an', 'ain', 'the', 'being', 'himself', 'more', 'didn', 'themselves', 'or', 'a', 'which', 'few', 'some', 'to', 'through', 'out', 'over', 'of', 'up', 'isn', 'aren', 'mightn', 'we', 'll', 'yourself', 'it', 'so', 'my', 'against', 'by', 'itself', 'this', 'ours', 'again', 'that', 'while', 'do', 'his', 'not', 'but', 'she', 're', 'can', 'with', 'about', 'haven', 'me', 'hadn', 'shouldn', 'before', 'hasn', 'in', 'been', 'who', 'her', 'all', 'there', 'after', 'most', 'their', 'had', 'i', 'than', 'doesn', 'down', 'be', 'him', 'shan', 'whom', 'don', 'will', 'needn', 'won', 'why', 'how', 'have', 'are', 'doing', 'further', 'were', 'ma', 'such', 'herself', 'these', 'hers', 'o', 'under', 'and', 'both', 'he', 'where', 'at', 'above', 's', 'they', 'is', 've', 'wouldn', 'its', 'any', 'yourselves', 'because', 'weren', 'what', 'just', 'them', 'for', 'on', 'as', 'should', 'each', 'during', 'couldn', 'was', 'mustn', 'when', 'into', 'yours', 'has']
+
+stop_words_dict = dict()
+for i in range(0, len(stop_words)):
+	stop_words_dict[stop_words[i]] = 1
+
 		
 data_extraction = map(lambda p: p.rstrip(), data_extraction)
 data_json_str = "[" + ','.join(data_extraction) + "]"
@@ -36,7 +37,8 @@ dictionary = dict()
 for i in range(0, train_size):
 	for word in df['text'][i].split():
 		temp_word = word.lower()
-#		temp_word = lmtzr.lemmatize(temp_word)
+		if temp_word in stop_words_dict:
+			continue
 		if temp_word not in dictionary and df['stars'][i] > 3:
 			dictionary[temp_word] = [1,0]
 		elif temp_word not in dictionary and df['stars'][i] < 3:
@@ -50,7 +52,7 @@ for i in range(0, train_size):
 
 
 for k,v in dictionary.items():
-	if ((dictionary[k][0] < 0.5 * dictionary[k][1]) and dictionary[k][1]>10) or ((dictionary[k][1] < 0.5 * dictionary[k][0]) and dictionary[k][0]>10):
+	if ((dictionary[k][0] < 0.4 * dictionary[k][1]) and dictionary[k][1]>14) or ((dictionary[k][1] < 0.4 * dictionary[k][0]) and dictionary[k][0]>14):
 		if len(k) > 2:
 			bag_of_words.append(k)
 
@@ -77,7 +79,7 @@ def featureExtraction(p,t):
 	if sum(temp)!=0:
 		if t > 3:
 			return temp + [1,1]
-		else:
+		elif t < 3:
 			return temp + [1,0]
 	else:
 		pass
