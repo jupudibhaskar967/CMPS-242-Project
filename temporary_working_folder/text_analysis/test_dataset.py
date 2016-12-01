@@ -18,19 +18,19 @@ DATASET = Dataset('/home/karthik/PycharmProjects/cmps242/project/yelp_dataset_ch
 
 
 class DatasetTestCase(unittest.TestCase):
-    def est_data_parsing(self):
+    def test_data_parsing(self):
         lines = [TEST_DATA]
         token_list = dataset.process(lines)
         self.assertTrue(len(token_list) == 1)
         review_stat = token_list[0]
         self.assertEqual(self._get_review_text_from(TEST_DATA).sort(), review_stat.get_terms().sort())
 
-    def est_review_stats(self):
+    def test_review_stats(self):
         review_stat = self._build_review_stat()
         self.assertTrue(review_stat.has_term('the'))
         self.assertEqual(0.08333333333333333, review_stat.term_freq('the'))
 
-    def est_dataset_stat(self):
+    def test_dataset_stat(self):
         review_stat = self._build_review_stat()
         dataset_stat = DatasetStat()
         dataset_stat.add([review_stat])
@@ -39,7 +39,7 @@ class DatasetTestCase(unittest.TestCase):
             self.assertEqual('extra', term)
             break
 
-    def est_dataset_stats(self):
+    def test_dataset_stats(self):
         dataset_stats = DATASET.load()
         self.assertEqual(len(dataset_stats.get_review_stats()), 12)
         self.assertListEqual(dataset_stats.top_term_freq_prod_inv_doc_freq(2),
@@ -48,7 +48,7 @@ class DatasetTestCase(unittest.TestCase):
 
     def test_read_large_dataset(self):
         dataset = Dataset('/home/karthik/PycharmProjects/cmps242/project/yelp_dataset_challenge_academic_dataset', 8,
-                          5000, -1)
+                          1000, -1)
         dataset_stats = dataset.load()
         term_freq_prod_inv_doc_freq = dataset_stats.top_term_freq_prod_inv_doc_freq(50)
         for term, freq in term_freq_prod_inv_doc_freq.iteritems():
