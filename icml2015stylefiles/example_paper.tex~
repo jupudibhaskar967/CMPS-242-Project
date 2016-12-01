@@ -51,7 +51,7 @@
 
 % The \icmltitle you define below is probably too long as a header.
 % Therefore, a short form for the running title is supplied here:
-\icmltitlerunning{Sentimental analysis for yelp dataset}
+\icmltitlerunning{Sentiment analysis on yelp dataset}
 
 \begin{document} 
 
@@ -60,18 +60,18 @@
 
 
 \twocolumn[
-\icmltitle{Sentimental analysis for yelp dataset}
+\icmltitle{Sentiment analysis on yelp dataset}
 
 
 % It is OKAY to include author information, even for blind
 % submissions: the style file will automatically remove it for you
 % unless you've provided the [accepted] option to the icml2015
 % package.
-\icmlauthor{Bhaskar Jupudi}{njupudi@ucsc.edu}
+\icmlauthor{Naga Venkata Sai Indubhaskar Jupudi}{njupudi@ucsc.edu}
 \icmlauthor{Trivikram Bollempalli}{tbollemp@ucsc.edu}
-\icmlauthor{Chandrahas}{cjagadis@ucsc.edu}
-\icmlauthor{Karthikeyan}{karthik@ucsc.edu}
-\icmlauthor{GitHub Link}{https://github.com/jupudibhaskar967/CMPS-242-Project.git}
+\icmlauthor{Chandrahas Jagadish Ramalad}{cjagadis@ucsc.edu}
+\icmlauthor{Karthikeyan Subramanian}{ksubram1@ucsc.edu}\\
+GitHub Link : \url{https://github.com/jupudibhaskar967/CMPS-242-Project.git}
 
 % You may provide any keywords that you 
 % find helpful for describing your paper; these are used to populate 
@@ -83,21 +83,29 @@
 
 
 
-\begin{abstract} 
-In this project, we aim to perform sentiment analysis i.e., classifying whether the review is postive or negative using the yelp dataset based on reviews and ratings. The classification problem can be solved by a set of algorithms. Every algorithm has its own advantages and disadvantages in terms of accuracy and model complexity. 
+%%\begin{abstract} 
+ 
+%%\end{abstract}  
 
-For example, Naive Bayes classifier is faster to compute than Logistic Regression classifier for huge datasets. But the disadvantage with the former is that it assumes that features are independent where as the latter has no such assumptions which can lead to better precdiction. Our work mainly concentrates on implementing these two classifiers and techniques to make them perform much better. We have adopted multi-processing for feature extraction to make it way faster and also implemented two different approaches of Logistic regression for both binary and multi-class classfication. We have also implemented Naive Bayes classifier. Finally, we contrast these two algorithms based on time taken for execution and performance metrics like accuracy, precision and recall. 
-\end{abstract} 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Problem statement}
+In this project, we aim to perform sentiment analysis on the yelp dataset. Using reviews and rating data for training, given a new review we classify it as a positive/negative review (binary) and also predict the rating (multiclass). A review is considered positive if it has received a rating of 4 or 5 and negative if it's rating is 1 or 2. The classification problem can be solved by a set of algorithms. Every algorithm has its own advantages and disadvantages in terms of accuracy and model complexity. 
 
+For example, naive Bayes classifier is faster to compute than logistic regression classifier for huge datasets. But the disadvantage with the former is that it assumes the features are independent where as the latter has no such assumptions which can lead to better precdiction. Our work mainly concentrates on implementing these two classifiers and techniques to improve their performance. We have adopted multi-processing for feature extraction to make it considerably faster. We have implemented stochastic gradient descent as an optimizer for logistic regression. We have also implemented Naive Bayes classifier as a baseline to compare our results from logistic regression. Finally, we contrast these algorithms based on time taken for execution and performance metrics like accuracy, precision and recall.
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Feature Extraction}
 
-We have extracted the features for respective algorithms using our own constraints and formulations instead of using count vectorizer. The reason we designed this because countvectorizer method is raising a run-time exception for a large dataset (\textgreater300k reviews).
+We have extracted the features for respective algorithms using our own constraints instead of using countvectorizer(). This is because countvectorizer() is throwing a run-time exception for a large dataset (\textgreater300k reviews).
 
 \subsection{Binary classification}
-For logistic regression, we need to form a data vector from a bag of words which contains the word count. To compute this, first we extracted 4/5 th of our total dataset (which is our training data) and extracted the words and their respective counts into a dictionary. Out of all these words, we have used three constraints to restrict the number of bag of words. One, if a word occurs for 'x' times in a positive review then we considered that word into bag of words only if the same word occurs for less than 4/10 th times in the negative review and vice-versa. Second, total word count for a specific word should be more than 14. Third, we check if length of the word is more than 2 characters thereby restricting the number of features to 8895. The exact numbers we have used is just an arbitrary choice and can vary to adjust the accuracy. The intuition behind this is, a word which have equal count over both postive and negative reviews and if a word occurs over all the reviews for very less frequent times (\textless10 or so which might be a typing mistake) will be having a very less impact over the decision rule and single character words may not effect the meaning of the review when considered as a whole.
+For logistic regression, we need to form a count vector from bag of words. To generate this, first we extracted 4/5 th of our total dataset (which is our training data) and extracted the words and their respective counts into a dictionary. We make sure none of the stop words are added to this dictionary. Further, we removed all the punctuation and numerical characters from the words before adding them to the dictionary. 
+
+
+We then apply three constraints on this dictionary to form a bag of words. One, if a word occurs for 'x' times in all the positive reviews then we considered that word into bag of words only if the same word occurs for less than 4/10 th times in the negative review and vice-versa. Second, total word count for a specific word should be more than 14. Third, we check if length of the word is more than 2 characters thereby restricting the number of features to 8895. The exact numbers we have used is just an arbitrary choice and can vary to adjust the accuracy. The intuition behind this is, a word which have equal count over both postive and negative reviews and if a word occurs over all the reviews for very less frequent times (\textless10 or so which might be a typing mistake) will be having a very less impact over the decision rule and single character words may not effect the meaning of the review when considered as a whole.
 
 After obtaining bag of words, we formed data vector 'x', using multi-processing (as it is both compute and memory intensive operation) to make it more faster as each review can be formed into a count vector indepedently. For this we have used multiprocessing.Pool library in python. We used pool.map\_async() method to make all the individual vectors into a single data vector. 
 
@@ -112,14 +120,9 @@ We did the same thing for Naive Bayes algorithm, as we did in the binary classif
 
 
 \subsection{Most distinctive features}
-We find a set of features which are disctinctive for both positive and negative reviews. The following tables shows such words:
-
-
-
-
-
+The following tables shows a set of disctinctive features which shows a glimpse of our dataset.
 \begin{table}[H]
-\caption{Distinctive words for postive and negative classes}
+\caption{Distinctive words of the dataset.}
 \label{sample-table}
 \begin{small}
 \begin{sc}
@@ -128,9 +131,9 @@ We find a set of features which are disctinctive for both positive and negative 
 \hline
 Class &  Disctinctive words\\
 \hline
-Positive  &  \pbox{20cm}{This is the first \\ cell as da sd as d asd as d a \\dascell as da sd as d asd as d a das}\\
+Positive  &  \pbox{20cm}{satisfying, heavenly, treats, sweetness, heaven, \\incredible, gem, addicted, complement, great,\\ cheers, awesome, cream, candies, concoction}\\
 \hline
-Negative  &  ad,as,d,sad,as,d,sa,das,d,asd,a,d,a\\
+Negative  &  \pbox{20cm}{uninterested, roaches, blatant, dispute, kills,\\ annoyed, unethical, plague, trash,creepy,\\ flavorless, disrespect, unsalted, manager, insulted}\\
 \hline
 \end{tabular}
 \end{adjustbox}
@@ -138,52 +141,98 @@ Negative  &  ad,as,d,sad,as,d,sa,das,d,asd,a,d,a\\
 \end{small}
 \end{table}
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Model Formulation}
 From Feature Engineering, we get input data and its labels. we will use this to train our logistic regression algorithm. We have implemented both logistic regression for two classes and also multi-class logistic regression.
 \subsection{Binary Logistic Regression}
-\begin{equation}
+
+
+\begin{equation*}
 P(C_{1}|X) = \vspace{10mm}   \frac{p(X|C_{1}).p(C_{1})}{p(X|C_{1}).p(C_{1}) + p(X|C_{2}).p(C_{2})}
-\end{equation}
+\end{equation*}
+
+
 
 The probability for the first class is given by 
-\begin{equation}
+\begin{equation*}
 P(C_{1}|X) = y(x)  = \sigma(W\textsuperscript{T}X + b) 
-\end{equation}
+\end{equation*}
 The likelihood is given as 
-\begin{equation}
+\begin{equation*}
 P(t|W) = \prod\limits_{n=1}^N (y_{n})^{t_{n}}(1-y_{n})^{1- t_{n}}
-\end{equation}
+\end{equation*}
 
 The cost function is 
-\begin{equation}
-E(w) = -ln \hspace{1mm} p(t|W) = -\sum\limits_{n=1}^N t_{n}\hspace{1mm}ln(y_{n}) + (1-t_{n})ln(1-y_{n})
-\end{equation}
+\begin{equation*}
+E(w) = -ln  p(t|W) = -\sum\limits_{n=1}^N t_{n}ln(y_{n}) + (1-t_{n})ln(1-y_{n})
+\end{equation*}
 
 Gradient is calculated as follows
-\begin{equation}
+\begin{equation*}
 \nabla E(w) = \sum\limits_{n=1}^N (y_{n} - t_{n}) \phi_{n}
-\end{equation}
+\end{equation*}
 
 
 
 \subsection{Multiclass Logistic regression}
-The probability of a class in logistic regression with multiple classes is given by:
-p (Ck |x) = yk (φ) = exp (ak ) P j exp (aj) where ak = ln p (x|Ck ) + ln p (Ck )
-We estimated the parameters using Maximum Log Likelihood estimation. For N data points, the likelihood function is : 
-= Y N n=1 Y K k=1 y tnk nk
-Taking log on both sides and negation of it, we get the below negative log likelihood function:
-X N n=1 X K k=1 tnk ln ynk
-E(w) is our cost function which we want to minimize to estimate W parameters. The gradient for the cost function is given by:
-∇E (w1, . . . , wK ) = X N n=1 (ynj − tnj) φn
-We use this gradient in minimizing the cost function.
+The probability of a class in logistic regression with multiple
+classes is given by:
+\begin{equation*}
+P(C_{k}|\boldsymbol{X}) =  \frac{p(\boldsymbol{X}|C_{k}).p(C_{k})}{\sum\limits_{j}p(\boldsymbol{X}|C_{j}).p(C_{j})}
+\end{equation*}
+that is,,
+\begin{equation*}
+P(C_{k}|\boldsymbol{X}) =  y_{k}(\phi) = \frac{exp(a_{k})}{\sum\limits_{j} exp(a_{j})}
+\end{equation*}
+
+where 
+
+\begin{equation*}
+a_{k} = ln p(\boldsymbol{X}|C_{k}) + ln  p(C_{k})
+\end{equation*}
+
+We estimated the parameters using Maximum Log Likelihood
+estimation. For N data points, the likelihood function is
+
+\begin{equation*}
+p(T|\boldsymbol{w_{1},..,w_{k}}) = \prod\limits_{n=1}^N \prod\limits_{k=1}^K p(C_{k}|\phi_{n})^{t_{nk}} = \prod\limits_{n=1}^N \prod\limits_{k=1}^K y_{nk}^{t_{nk}}
+\end{equation*}
+
+where,
+
+\begin{equation*}
+y_{nk} = y_k(\phi_{n})
+\end{equation*}
+Taking log on both sides
+and negation of it, we get the below negative log likelihood
+function:
+
+\begin{equation*}
+E (\boldsymbol{w_{1}},..., \boldsymbol{w_{k}} ) = -ln p(T|\boldsymbol{w_{1}},...,\boldsymbol{w_{k}}) = - \sum\limits_{n=1}^N \sum\limits_{k=1}^K t_{nk} ln y_{nk}
+\end{equation*}
+
+E(w) is our cost
+function which we want to minimize to estimate W parameters.
+The gradient for the cost function is given by
+
+
+\begin{equation*}
+\nabla E (\boldsymbol{w_{1}},..., \boldsymbol{w_{k}} ) = \sum\limits_{n=1}^N(y_{nj} - t_{nj}) \phi_{n}
+\end{equation*}
+
+
+
+
 
 \subsection{Optimization techniques}
 We used fmin\_l\_bfgs\_b and stochastic gradient descent to minimize the cost function and obtain W. fmin\_l\_bfgs\_b is from scipy.optimize module in python. It uses the gradient that we calculated above in minimizing the cost function.
 
 We also implemented Stochastic Gradient Descent(SGD). SGD is similar to gradient descent algorithm. In gradient descent, we find gradient for the entire training dataset and then update W using W = W - alpha*gradient(w,x,y). Here alpha is the learning rate, W is the weight vector, x,y are training data. At each step, gradient descent update W, hoping that it minimizes the cost function. This is true as long as we choose proper alpha and gradient descent converges close to global minimum since the cost function is convex. In SGD, w is updated by finding gradient over each sample. We can also find gradient over a batch of training data which is a compromise between the two extremes. Finding gradient over a batch increases performance compared to single example because python can use the underlying vectorization libraries. We have implemented SGD in this way where you can specify batch size.
 
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Evaluations}
 
 We performed all our experiments on a server that has 24 physical cores (with hyperthreading 2) and 128GB of DRAM. We are testing our binary and multinomial logistic regression algorithms on yelp dataset. We are using three metrics viz., Accuracy, Precision, Recall to evaluate these algorithms. These three metrics are calculated as follows.
@@ -200,6 +249,7 @@ Recall =  (true positives) / (true positives + false negatives)
 
 We also compare the performance of our logistic regression algorithm with naive bayes approach, which we implemented from scratch and discuss tradeoffs. We compare the performance of logistic regression when fmin\_l\_bfgs\_b and Stochastic Gradient Descent are used as optimizers.
 
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 \section{Results}
 
 
@@ -254,11 +304,13 @@ countvectorizer  & 10k & Run-Time error \\
 
 \subsection{Binary classification}
 
+We have extracted 50k reviews out of which we use 40K reviews for training and 10k reviews for testing. The total number of features are 5437. 
+Figure 1 illustrates the performance statistics of logistic regression classifier with fmin\_l\_bfgs\_b vs stochastic gradient descent optimization. As it is evident from the figure, the former optimiztion is 16 times slower than the latter and also good accuracy can be obtained by carefully varying the alpha parameter in SGD. 
 
 \begin{figure}[H]
   \caption{fmin\_l\_bfgs\_b vs stochastic gradient descent}
   \centering
-    \includegraphics[width=0.5\textwidth]{icml_numpapers}
+    \includegraphics[width=0.5\textwidth,height=3.5cm]{newtemp}
 \end{figure}
 
 
@@ -271,12 +323,6 @@ countvectorizer  & 10k & Run-Time error \\
 
 
 \subsection{Multiclass classification}
-\begin{figure}[H]
-  \caption{fmin\_l\_bfgs\_b vs stochastic gradient descent}
-  \centering
-    \includegraphics[width=0.5\textwidth]{icml_numpapers}
-\end{figure}
-
 
 \begin{figure}[H]
   \caption{stochastic gradient descent vs Naive Bayes classifier}
@@ -286,9 +332,12 @@ countvectorizer  & 10k & Run-Time error \\
 
 
 
-
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 \section{Conclusion}
+
+
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 % In the unusual situation where you want a paper to appear in the
 % references without citing it in the main text, use \nocite
 \nocite{langley00}
