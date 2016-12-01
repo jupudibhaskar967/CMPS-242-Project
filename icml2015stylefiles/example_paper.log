@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.19)  30 NOV 2016 19:20
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.19)  30 NOV 2016 19:41
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -652,12 +652,13 @@ Overfull \hbox (5.1225pt too wide) in paragraph at lines 86--86
 
 LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <12> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 86.
-LaTeX Font Info:    Try loading font information for OML+ptm on input line 97.
+LaTeX Font Info:    Try loading font information for OML+ptm on input line 100.
+
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omlptm.fd
 File: omlptm.fd 
 )
 LaTeX Font Info:    Font shape `OML/ptm/m/n' in size <10> not available
-(Font)              Font shape `OML/cmm/m/it' tried instead on input line 97.
+(Font)              Font shape `OML/cmm/m/it' tried instead on input line 100.
 
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
@@ -666,69 +667,54 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
 
 
 ]
-Overfull \hbox (9.03662pt too wide) in paragraph at lines 136--139
+Overfull \hbox (9.03651pt too wide) in paragraph at lines 134--137
 []
  []
 
 
-Underfull \hbox (badness 10000) in paragraph at lines 136--139
+Underfull \hbox (badness 10000) in paragraph at lines 134--137
 
  []
 
 
-Overfull \hbox (7.64914pt too wide) detected at line 162
+Overfull \hbox (1.95862pt too wide) detected at line 160
 []\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 w\OT1/cmr/m/n/10 ) = \OMS
-/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 ln p\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OMS/cm
-sy/m/n/10 j\OML/cmm/m/it/10 W\OT1/cmr/m/n/10 ) = \OMS/cmsy/m/n/10 ^^@ [] \OML/c
-mm/m/it/10 t[] ln\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y[]\OT1/cmr/m/n/10 ) + (1 \O
-MS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ln\OT1
-/cmr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 y[]\OT1/cmr/m/n/10 )
- []
-
-Missing character: There is no Ï in font ptmr7t!
-Missing character: There is no † in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ‡ in font ptmr7t!
-Missing character: There is no â in font ptmr7t!
-Missing character: There is no ˆ in font ptmr7t!
-Missing character: There is no ’ in font ptmr7t!
-Missing character: There is no Ï in font ptmr7t!
-Missing character: There is no † in font ptmr7t!
-
-Underfull \vbox (badness 10000) has occurred while \output is active []
-
- [2]
-<icml_numpapers.pdf, id=40, 498.86375pt x 416.55624pt>
-File: icml_numpapers.pdf Graphic file (type pdf)
-
-<use icml_numpapers.pdf>
-Package pdftex.def Info: icml_numpapers.pdf used on input line 261.
-(pdftex.def)             Requested size: 243.91124pt x 203.6694pt.
-
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 261--262
- [][] 
+/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 lnp\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 t\OMS/cms
+y/m/n/10 j\OML/cmm/m/it/10 W\OT1/cmr/m/n/10 ) = \OMS/cmsy/m/n/10 ^^@ [] \OML/cm
+m/m/it/10 t[]ln\OT1/cmr/m/n/10 (\OML/cmm/m/it/10 y[]\OT1/cmr/m/n/10 ) + (1 \OMS
+/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 t[]\OT1/cmr/m/n/10 )\OML/cmm/m/it/10 ln\OT1/c
+mr/m/n/10 (1 \OMS/cmsy/m/n/10 ^^@ \OML/cmm/m/it/10 y[]\OT1/cmr/m/n/10 )
  []
 
 
+Overfull \hbox (15.61836pt too wide) detected at line 204
+[]\OML/cmm/m/it/10 E\OT1/cmr/m/n/10 ([]\OML/cmm/m/it/10 ; :::; []\OT1/cmr/m/n/1
+0 ) = \OMS/cmsy/m/n/10 ^^@\OML/cmm/m/it/10 lnp\OT1/cmr/m/n/10 (\OML/cmm/m/it/10
+ T\OMS/cmsy/m/n/10 j[]\OML/cmm/m/it/10 ; :::; []\OT1/cmr/m/n/10 ) = \OMS/cmsy/m
+/n/10 ^^@ [] [] \OML/cmm/m/it/10 t[]lny[]
+ []
+
+[2]
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
+
+<icml_numpapers.pdf, id=49, 498.86375pt x 416.55624pt>
 File: icml_numpapers.pdf Graphic file (type pdf)
 
 <use icml_numpapers.pdf>
-Package pdftex.def Info: icml_numpapers.pdf used on input line 268.
+Package pdftex.def Info: icml_numpapers.pdf used on input line 301.
 (pdftex.def)             Requested size: 243.91124pt x 203.6694pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 268--269
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 301--302
  [][] 
  []
 
 File: icml_numpapers.pdf Graphic file (type pdf)
 <use icml_numpapers.pdf>
-Package pdftex.def Info: icml_numpapers.pdf used on input line 277.
+Package pdftex.def Info: icml_numpapers.pdf used on input line 308.
 (pdftex.def)             Requested size: 243.91124pt x 203.6694pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 277--278
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 308--309
  [][] 
  []
 
@@ -738,54 +724,68 @@ Underfull \vbox (badness 10000) has occurred while \output is active []
  [3 <./icml_numpapers.pdf>]
 File: icml_numpapers.pdf Graphic file (type pdf)
  <use icml_numpapers.pdf>
-Package pdftex.def Info: icml_numpapers.pdf used on input line 284.
+Package pdftex.def Info: icml_numpapers.pdf used on input line 317.
 (pdftex.def)             Requested size: 243.91124pt x 203.6694pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 284--285
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 317--318
  [][] 
  []
 
-(./example_paper.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 299.
- [4
+File: icml_numpapers.pdf Graphic file (type pdf)
+<use icml_numpapers.pdf>
+Package pdftex.def Info: icml_numpapers.pdf used on input line 324.
+(pdftex.def)             Requested size: 243.91124pt x 203.6694pt.
 
-]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 299.
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 324--325
+ [][] 
+ []
+
+
+Underfull \vbox (badness 10000) has occurred while \output is active []
+
+
+(./example_paper.bbl)
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 342.
+ [4]
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 342.
  (./example_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 299.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 299.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 342.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 342.
 Package rerunfilecheck Info: File `example_paper.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 299.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 342.
  ) 
 Here is how much of TeX's memory you used:
- 13860 strings out of 493085
- 236895 string characters out of 6136917
- 652340 words of memory out of 5000000
- 17137 multiletter control sequences out of 15000+600000
- 25964 words of font info for 49 fonts, out of 8000000 for 9000
+ 13885 strings out of 493085
+ 237165 string characters out of 6136917
+ 654340 words of memory out of 5000000
+ 17146 multiletter control sequences out of 15000+600000
+ 28721 words of font info for 58 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 39i,15n,45p,10407b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 39i,16n,45p,10407b,360s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texm
-f-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist
-/fonts/type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/
-type1/public/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
-ublic/amsfonts/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
-msfonts/cm/cmr7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/
-cm/cmsy10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cms
-y7.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/sh
-are/texlive/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/tex
-mf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/t
-ype1/urw/times/utmri8a.pfb>
-Output written on example_paper.pdf (4 pages, 129743 bytes).
+e/texmf-dist/fonts/type1/public/amsfonts/cm/cmbx7.pfb></usr/share/texlive/texmf
+-dist/fonts/type1/public/amsfonts/cm/cmex10.pfb></usr/share/texlive/texmf-dist/
+fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/
+type1/public/amsfonts/cm/cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/p
+ublic/amsfonts/cm/cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmmib10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
+ts/cmextra/cmmib7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfont
+s/cm/cmr10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cm
+r7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb
+></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/
+share/texlive/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/t
+exmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts
+/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/time
+s/utmri8a.pfb>
+Output written on example_paper.pdf (4 pages, 156241 bytes).
 PDF statistics:
- 113 PDF objects out of 1000 (max. 8388607)
- 93 compressed objects within 1 object stream
- 34 named destinations out of 1000 (max. 500000)
+ 136 PDF objects out of 1000 (max. 8388607)
+ 112 compressed objects within 2 object streams
+ 41 named destinations out of 1000 (max. 500000)
  6 words of extra memory for PDF output out of 10000 (max. 10000000)
 
