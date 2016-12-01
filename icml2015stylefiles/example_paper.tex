@@ -71,6 +71,7 @@
 \icmlauthor{Trivikram Bollempalli}{tbollemp@ucsc.edu}
 \icmlauthor{Chandrahas Jagadish Ramalad}{cjagadis@ucsc.edu}
 \icmlauthor{Karthikeyan Subramanian}{ksubram1@ucsc.edu}\\
+\\
 GitHub Link : \url{https://github.com/jupudibhaskar967/CMPS-242-Project.git}
 
 % You may provide any keywords that you 
@@ -301,7 +302,7 @@ countvectorizer  & 10k & Run-Time error \\
 
 
 \subsection{Binary classification}
-
+\subsubsection{fmin\_l\_bfgs\_b vs stochastic gradient descent}
 We have extracted 50k reviews out of which we used 40K reviews for training and 10k reviews for testing. The total number of features are 5437. 
 Figure 1 illustrates the performance statistics of logistic regression classifier with fmin\_l\_bfgs\_b vs stochastic gradient descent optimization. As it is evident from the figure, the former optimization is 16 times slower than the latter and also good accuracy can be obtained by carefully varying the alpha parameter in SGD. Label1 represents postive review (rating greater than 3) and label2 represents negative review (rating less than 3).
 
@@ -312,21 +313,17 @@ Figure 1 illustrates the performance statistics of logistic regression classifie
 \end{figure}
 
 
-
+\subsubsection{stochastic gradient descent vs naive Bayes}
 Here, we have extracted 100k reviews out of which we used 80k reviews for training and 20k for testing. The total number of features for logistic regression are 8871. Figure 2 illustrates the performance statistics of logistic regression classifier with SGD vs naive Bayes classifier.  As it is evident from the figure that naive Bayes classifier is faster than SGD optimized logistic regression but the accuracy obtained is less.
-
 \begin{figure}[H]
   \caption{stochastic gradient descent vs Naive Bayes classifier}
   \centering
-    \includegraphics[width=0.5\textwidth]{icml_numpapers}
+    \includegraphics[width=0.5\textwidth]{sgdvsbayes}
 \end{figure}
 
 
 
 \subsection{Multiclass classification}
-
-
-
 \begin{figure}[H]
   \caption{stochastic gradient descent vs Naive Bayes classifier}
   \centering
