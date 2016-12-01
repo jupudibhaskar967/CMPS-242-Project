@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.19)  30 NOV 2016 22:07
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2016.9.19)  30 NOV 2016 22:17
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -701,10 +701,10 @@ Overfull \hbox (15.61836pt too wide) detected at line 212
 [2] <newtemp.pdf, id=39, 693.59125pt x 256.96pt>
 File: newtemp.pdf Graphic file (type pdf)
  <use newtemp.pdf>
-Package pdftex.def Info: newtemp.pdf used on input line 310.
+Package pdftex.def Info: newtemp.pdf used on input line 312.
 (pdftex.def)             Requested size: 243.91415pt x 99.58664pt.
 
-Overfull \hbox (9.03665pt too wide) in paragraph at lines 310--311
+Overfull \hbox (9.03665pt too wide) in paragraph at lines 312--313
  [][] 
  []
 
@@ -712,19 +712,19 @@ Overfull \hbox (9.03665pt too wide) in paragraph at lines 310--311
 File: icml_numpapers.pdf Graphic file (type pdf)
 
 <use icml_numpapers.pdf>
-Package pdftex.def Info: icml_numpapers.pdf used on input line 317.
+Package pdftex.def Info: icml_numpapers.pdf used on input line 319.
 (pdftex.def)             Requested size: 243.91124pt x 203.6694pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 317--318
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 319--320
  [][] 
  []
 
 File: icml_numpapers.pdf Graphic file (type pdf)
 <use icml_numpapers.pdf>
-Package pdftex.def Info: icml_numpapers.pdf used on input line 327.
+Package pdftex.def Info: icml_numpapers.pdf used on input line 329.
 (pdftex.def)             Requested size: 243.91124pt x 203.6694pt.
 
-Overfull \hbox (9.03374pt too wide) in paragraph at lines 327--328
+Overfull \hbox (9.03374pt too wide) in paragraph at lines 329--330
  [][] 
  []
 
@@ -732,21 +732,21 @@ Overfull \hbox (9.03374pt too wide) in paragraph at lines 327--328
 Underfull \vbox (badness 10000) has occurred while \output is active []
 
  [3 <./newtemp.pdf> <./icml_numpapers.pdf>] (./example_paper.bbl)
-Package atveryend Info: Empty hook `BeforeClearDocument' on input line 345.
+Package atveryend Info: Empty hook `BeforeClearDocument' on input line 347.
  [4
 
 ]
-Package atveryend Info: Empty hook `AfterLastShipout' on input line 345.
+Package atveryend Info: Empty hook `AfterLastShipout' on input line 347.
  (./example_paper.aux)
-Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 345.
-Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 345.
+Package atveryend Info: Executing hook `AtVeryEndDocument' on input line 347.
+Package atveryend Info: Executing hook `AtEndAfterFileList' on input line 347.
 Package rerunfilecheck Info: File `example_paper.out' has not changed.
 (rerunfilecheck)             Checksum: D41D8CD98F00B204E9800998ECF8427E;0.
 
 
 LaTeX Warning: There were multiply-defined labels.
 
-Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 345.
+Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 347.
  ) 
 Here is how much of TeX's memory you used:
  13910 strings out of 493085
@@ -772,7 +772,7 @@ share/texlive/texmf-dist/fonts/type1/urw/courier/ucrr8a.pfb></usr/share/texlive
 ts/type1/urw/times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/ti
 mes/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb
 >
-Output written on example_paper.pdf (4 pages, 330526 bytes).
+Output written on example_paper.pdf (4 pages, 330928 bytes).
 PDF statistics:
  133 PDF objects out of 1000 (max. 8388607)
  106 compressed objects within 2 object streams
